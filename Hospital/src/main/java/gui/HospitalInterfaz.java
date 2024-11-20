@@ -70,16 +70,23 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         contenedorOpt = new javax.swing.JPanel();
         principalOptP = new javax.swing.JPanel();
         principalL = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         prestamosOptP = new javax.swing.JPanel();
         prestamosL = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         devolucionesOptP = new javax.swing.JPanel();
         devolucionesL = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         miembrosOptP = new javax.swing.JPanel();
         miembrosL = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         catalogoOptP = new javax.swing.JPanel();
         catalogoL = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         logsOptP = new javax.swing.JPanel();
         logsL = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         barraP = new javax.swing.JPanel();
         textoL1 = new javax.swing.JLabel();
         contentP = new javax.swing.JPanel();
@@ -124,7 +131,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
 
         principalL.setBackground(new java.awt.Color(255, 255, 255));
         principalL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        principalL.setForeground(new java.awt.Color(88, 135, 237));
+        principalL.setForeground(new java.awt.Color(51, 51, 51));
         principalL.setText("Principal");
         principalL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -138,21 +145,28 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainicon_resized.png"))); // NOI18N
+        jLabel3.setPreferredSize(new java.awt.Dimension(30, 30));
+
         javax.swing.GroupLayout principalOptPLayout = new javax.swing.GroupLayout(principalOptP);
         principalOptP.setLayout(principalOptPLayout);
         principalOptPLayout.setHorizontalGroup(
             principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalOptPLayout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addComponent(principalL, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(principalL, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         principalOptPLayout.setVerticalGroup(
             principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(principalOptPLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(principalL)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(principalL))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         contenedorOpt.add(principalOptP);
@@ -175,7 +189,6 @@ public class HospitalInterfaz extends javax.swing.JFrame {
 
         prestamosL.setBackground(new java.awt.Color(255, 255, 255));
         prestamosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        prestamosL.setForeground(new java.awt.Color(88, 135, 237));
         prestamosL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prestamosL.setText("Iniciar Sesión");
         prestamosL.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,21 +203,27 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logInImg.png"))); // NOI18N
+
         javax.swing.GroupLayout prestamosOptPLayout = new javax.swing.GroupLayout(prestamosOptP);
         prestamosOptP.setLayout(prestamosOptPLayout);
         prestamosOptPLayout.setHorizontalGroup(
             prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prestamosOptPLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(prestamosL, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prestamosL, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(4, Short.MAX_VALUE))
         );
         prestamosOptPLayout.setVerticalGroup(
             prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prestamosOptPLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(prestamosL)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(prestamosL)
+                    .addComponent(jLabel7))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         contenedorOpt.add(prestamosOptP);
@@ -240,13 +259,18 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/expedienteImg.png"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(30, 30));
+
         javax.swing.GroupLayout devolucionesOptPLayout = new javax.swing.GroupLayout(devolucionesOptP);
         devolucionesOptP.setLayout(devolucionesOptPLayout);
         devolucionesOptPLayout.setHorizontalGroup(
             devolucionesOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, devolucionesOptPLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(devolucionesL, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(devolucionesL, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                 .addContainerGap())
         );
         devolucionesOptPLayout.setVerticalGroup(
@@ -254,7 +278,10 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, devolucionesOptPLayout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(devolucionesL)
-                .addGap(15, 15, 15))
+                .addGap(22, 22, 22))
+            .addGroup(devolucionesOptPLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         contenedorOpt.add(devolucionesOptP);
@@ -291,21 +318,31 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recetasImg.png"))); // NOI18N
+        jLabel5.setPreferredSize(new java.awt.Dimension(30, 30));
+
         javax.swing.GroupLayout miembrosOptPLayout = new javax.swing.GroupLayout(miembrosOptP);
         miembrosOptP.setLayout(miembrosOptPLayout);
         miembrosOptPLayout.setHorizontalGroup(
             miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosOptPLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addComponent(miembrosL, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(miembrosOptPLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(miembrosL, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         miembrosOptPLayout.setVerticalGroup(
             miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(miembrosOptPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(miembrosL)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGroup(miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(miembrosOptPLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(miembrosL))
+                    .addGroup(miembrosOptPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         contenedorOpt.add(miembrosOptP);
@@ -341,21 +378,30 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/citasImg.png"))); // NOI18N
+
         javax.swing.GroupLayout catalogoOptPLayout = new javax.swing.GroupLayout(catalogoOptP);
         catalogoOptP.setLayout(catalogoOptPLayout);
         catalogoOptPLayout.setHorizontalGroup(
             catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoOptPLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(catalogoL, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(catalogoL, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         catalogoOptPLayout.setVerticalGroup(
             catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoOptPLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(catalogoL)
-                .addGap(15, 15, 15))
+            .addGroup(catalogoOptPLayout.createSequentialGroup()
+                .addGroup(catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(catalogoOptPLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(catalogoL))
+                    .addGroup(catalogoOptPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         contenedorOpt.add(catalogoOptP);
@@ -380,23 +426,34 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         logsL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logsL.setText("Pacientes");
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pacientes.png"))); // NOI18N
+        jLabel4.setPreferredSize(new java.awt.Dimension(30, 30));
+
         javax.swing.GroupLayout logsOptPLayout = new javax.swing.GroupLayout(logsOptP);
         logsOptP.setLayout(logsOptPLayout);
         logsOptPLayout.setHorizontalGroup(
             logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logsOptPLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(logsL, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(logsOptPLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(logsL, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         logsOptPLayout.setVerticalGroup(
             logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logsOptPLayout.createSequentialGroup()
-                .addComponent(logsL, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(logsOptPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(logsL, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         contenedorOpt.add(logsOptP);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoMedbay.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout menuOpcionesLayout = new javax.swing.GroupLayout(menuOpciones);
         menuOpciones.setLayout(menuOpcionesLayout);
@@ -405,11 +462,16 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 2, Short.MAX_VALUE))
+            .addGroup(menuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menuOpcionesLayout.setVerticalGroup(
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuOpcionesLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(80, Short.MAX_VALUE))
         );
@@ -506,43 +568,43 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prestamosOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseEntered
-        prestamosOptP.setBackground(new Color(153, 204, 255));
+        prestamosOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_prestamosOptPMouseEntered
 
     private void devolucionesOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseEntered
-        devolucionesOptP.setBackground(new Color(153, 204, 255));
+        devolucionesOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_devolucionesOptPMouseEntered
 
     private void miembrosOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseEntered
-        miembrosOptP.setBackground(new Color(153, 204, 255));
+        miembrosOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_miembrosOptPMouseEntered
 
     private void prestamosOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseExited
-        prestamosOptP.setBackground(new Color(51,153,255));
+        prestamosOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_prestamosOptPMouseExited
 
     private void devolucionesOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseExited
-        devolucionesOptP.setBackground(new Color(51,153,255));
+        devolucionesOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_devolucionesOptPMouseExited
 
     private void miembrosOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseExited
-        miembrosOptP.setBackground(new Color(51,153,255));
+        miembrosOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_miembrosOptPMouseExited
 
     private void logsOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseEntered
-        logsOptP.setBackground(new Color(153, 204, 255));
+        logsOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_logsOptPMouseEntered
 
     private void logsOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseExited
-        logsOptP.setBackground(new Color(51,153,255));
+        logsOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_logsOptPMouseExited
 
     private void catalogoOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseExited
-        catalogoOptP.setBackground(new Color(51,153,255));
+        catalogoOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_catalogoOptPMouseExited
 
     private void catalogoOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseEntered
-        catalogoOptP.setBackground(new Color(153, 204, 255));
+        catalogoOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_catalogoOptPMouseEntered
 
     private void prestamosOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseClicked
@@ -583,43 +645,43 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_catalogoLMouseClicked
 
     private void catalogoLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseEntered
-        catalogoOptP.setBackground(new Color(153, 204, 255));
+        catalogoOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_catalogoLMouseEntered
 
     private void prestamosLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseEntered
-        prestamosOptP.setBackground(new Color(153, 204, 255));
+        prestamosOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_prestamosLMouseEntered
 
     private void devolucionesLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseEntered
-        devolucionesOptP.setBackground(new Color(153, 204, 255));
+        devolucionesOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_devolucionesLMouseEntered
 
     private void miembrosLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseEntered
-        miembrosOptP.setBackground(new Color(153, 204, 255));
+        miembrosOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_miembrosLMouseEntered
 
     private void devolucionesLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseExited
-        devolucionesOptP.setBackground(new Color(51,153,255));
+        devolucionesOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_devolucionesLMouseExited
 
     private void prestamosLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseExited
-        prestamosOptP.setBackground(new Color(51,153,255));
+        prestamosOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_prestamosLMouseExited
 
     private void miembrosLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseExited
-        miembrosOptP.setBackground(new Color(51,153,255));
+        miembrosOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_miembrosLMouseExited
 
     private void catalogoLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseExited
-        catalogoOptP.setBackground(new Color(51,153,255));
+        catalogoOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_catalogoLMouseExited
 
     private void principalOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseExited
-        principalOptP.setBackground(new Color(51,153,255));
+        principalOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_principalOptPMouseExited
 
     private void principalOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseEntered
-        principalOptP.setBackground(new Color(153, 204, 255));
+        principalOptP.setBackground(new Color(255,255,255));
     }//GEN-LAST:event_principalOptPMouseEntered
 
     private void principalOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseClicked
@@ -627,7 +689,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_principalOptPMouseClicked
 
     private void principalLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseExited
-        principalOptP.setBackground(new Color(255,255,255));
+        principalOptP.setBackground(new Color(189,238,252));
     }//GEN-LAST:event_principalLMouseExited
 
     private void principalLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseEntered
@@ -725,6 +787,13 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel contentP;
     private javax.swing.JLabel devolucionesL;
     private javax.swing.JPanel devolucionesOptP;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel logsL;
     private javax.swing.JPanel logsOptP;
     private javax.swing.JPanel menuOpciones;
