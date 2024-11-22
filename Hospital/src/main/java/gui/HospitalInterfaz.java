@@ -46,12 +46,14 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private Image catalogoImage = new ImageIcon("src/main/resources/catalogoImg.png").getImage();
     private Image logsImage = new ImageIcon("src/main/resources/logsImg.png").getImage();
     private Image logoImage = new ImageIcon("src/main/resources/alejandria.jpg").getImage();
+    
+    private LoginPanel inicioSesion = new LoginPanel();
     public HospitalInterfaz() {
         initComponents();
-        
         initStyles();
         initContent();
-   
+        
+        changeContent(inicioSesion);
 
     }
 
