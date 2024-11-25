@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Keloc
  */
 public class Auth {
-    public static String iniciarSesion(String nombreUsuario, String contrasena) throws Exception {
+    public static Usuario iniciarSesion(String nombreUsuario, String contrasena) throws Exception {
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         ObjectMapper objectMapper = new ObjectMapper();
         
@@ -28,7 +28,7 @@ public class Auth {
 
         try (Response response = client.newCall(request).execute()) {
             if (response.code() == 401){
-                return "Nombre de Usuario y/o Contraseña Incorrectos";
+                return null;
             }
             if (!response.isSuccessful()) {
                 throw new Exception("Error: " + response.code());
@@ -36,7 +36,7 @@ public class Auth {
             
             String res = response.body().string();
             Usuario usuario = objectMapper.readValue(res, Usuario.class);
-            return usuario.getRol();
+            return usuario;
         } 
     }
 }

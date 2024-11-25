@@ -24,6 +24,9 @@
           <Dimension value="[185, 75]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="citasBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="expedientesBtn">
       <Properties>
@@ -47,6 +50,9 @@
           <Dimension value="[185, 75]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="expedientesBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="emergenciasBtn">
       <Properties>
@@ -70,6 +76,9 @@
           <Dimension value="[185, 75]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="emergenciasBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="salirBtn">
       <Properties>
@@ -93,6 +102,9 @@
           <Dimension value="[185, 75]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="salirBtnMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="principalBtn">
       <Properties>
@@ -116,6 +128,9 @@
           <Dimension value="[185, 75]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalBtnMouseClicked"/>
+      </Events>
     </Component>
   </NonVisualComponents>
   <Properties>

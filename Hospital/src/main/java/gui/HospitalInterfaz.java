@@ -34,9 +34,12 @@ import clases.*;
  * @author Keloc
  */
 public class HospitalInterfaz extends javax.swing.JFrame {
-
-    private String rolUsuario;
+    
+    private Usuario currUser;
     private Principal principalP;
+    private CitasPanel citasP;
+    private ExpedientesPanel expedientesP;
+    private EmergenciasPanel emergenciasP;
 
     private Image principalImage = new ImageIcon("src/main/resources/principalImg.png").getImage();
     private Image prestamoImage = new ImageIcon("src/main/resources/prestamoImg.png").getImage();
@@ -86,6 +89,11 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         citasBtn.setMaximumSize(new java.awt.Dimension(300, 150));
         citasBtn.setMinimumSize(new java.awt.Dimension(175, 75));
         citasBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+        citasBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                citasBtnMouseClicked(evt);
+            }
+        });
 
         expedientesBtn.setBackground(new java.awt.Color(189, 238, 252));
         expedientesBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -94,6 +102,11 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         expedientesBtn.setMaximumSize(new java.awt.Dimension(300, 150));
         expedientesBtn.setMinimumSize(new java.awt.Dimension(175, 75));
         expedientesBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+        expedientesBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                expedientesBtnMouseClicked(evt);
+            }
+        });
 
         emergenciasBtn.setBackground(new java.awt.Color(189, 238, 252));
         emergenciasBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -102,6 +115,11 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         emergenciasBtn.setMaximumSize(new java.awt.Dimension(300, 150));
         emergenciasBtn.setMinimumSize(new java.awt.Dimension(175, 75));
         emergenciasBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+        emergenciasBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                emergenciasBtnMouseClicked(evt);
+            }
+        });
 
         salirBtn.setBackground(new java.awt.Color(189, 238, 252));
         salirBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -110,6 +128,11 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         salirBtn.setMaximumSize(new java.awt.Dimension(300, 150));
         salirBtn.setMinimumSize(new java.awt.Dimension(175, 75));
         salirBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+        salirBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirBtnMouseClicked(evt);
+            }
+        });
 
         principalBtn.setBackground(new java.awt.Color(189, 238, 252));
         principalBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -118,6 +141,11 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         principalBtn.setMaximumSize(new java.awt.Dimension(300, 150));
         principalBtn.setMinimumSize(new java.awt.Dimension(175, 75));
         principalBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+        principalBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                principalBtnMouseClicked(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -251,6 +279,27 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+  /* SEGUN GITHUB ESTO CAUSA CONFLICTOS :/ 
+    private void citasBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnMouseClicked
+        ContentChange.changePanel(contentP, citasP);
+    }//GEN-LAST:event_citasBtnMouseClicked
+
+    private void expedientesBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_expedientesBtnMouseClicked
+        ContentChange.changePanel(contentP, expedientesP);
+    }//GEN-LAST:event_expedientesBtnMouseClicked
+
+    private void emergenciasBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emergenciasBtnMouseClicked
+        ContentChange.changePanel(contentP, emergenciasP);
+    }//GEN-LAST:event_emergenciasBtnMouseClicked
+
+    private void principalBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalBtnMouseClicked
+        ContentChange.changePanel(contentP, principalP);
+    }//GEN-LAST:event_principalBtnMouseClicked
+
+    private void salirBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBtnMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_salirBtnMouseClicked
+   */
 
     private ImageIcon resizeImage(Image image, JLabel label){
         ImageIcon img = new ImageIcon(image.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
@@ -263,10 +312,13 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     }
     
     public void initContent(){
-        this.principalP = new Principal(rolUsuario);
+        this.principalP = new Principal(currUser.getRol());
+        this.citasP = new CitasPanel(this);
+        this.emergenciasP = new EmergenciasPanel();
+        this.expedientesP = new ExpedientesPanel(this);
         ContentChange.changePanel(contentP, principalP);
         contenedorOpt.add(principalBtn);
-        switch(rolUsuario){
+        switch(currUser.getRol()){
             case "MEDICO":
                 contenedorOpt.add(expedientesBtn);
                 break;
@@ -284,12 +336,12 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         contenedorOpt.add(salirBtn);
     }
 
-    public String getRolUsuario() {
-        return rolUsuario;
+    public Usuario getCurrUser() {
+        return currUser;
     }
 
-    public void setRolUsuario(String rolUsuario) {
-        this.rolUsuario = rolUsuario;
+    public void setCurrUser(Usuario usuario) {
+        this.currUser = usuario;
     }
     
     

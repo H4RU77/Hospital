@@ -4,6 +4,7 @@
  */
 package gui;
 import clases.Auth;
+import clases.Usuario;
 import java.awt.Window;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
@@ -118,8 +119,8 @@ public class LoginPanel extends javax.swing.JPanel {
         String nombreUsuario = nombreUsuarioTF.getText();
         String contrasena = new String(contraPF.getPassword());
         try {
-            String rol = Auth.iniciarSesion(nombreUsuario, contrasena);
-            mainInterface.setRolUsuario(rol);
+            Usuario usuario = Auth.iniciarSesion(nombreUsuario, contrasena);
+            mainInterface.setCurrUser(usuario);
             mainInterface.initContent();
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
