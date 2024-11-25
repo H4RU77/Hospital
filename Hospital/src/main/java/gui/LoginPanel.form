@@ -39,7 +39,11 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="nombreUsuarioTF" max="32767" attributes="0"/>
                       <Component id="contraPF" alignment="0" pref="320" max="32767" attributes="0"/>
-                      <Component id="errorTF" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="errorTF" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="togglePassBtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
               </Group>
@@ -58,8 +62,11 @@
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="contraPF" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="errorTF" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="errorTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="togglePassBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="iniciarSesionBtn" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace pref="117" max="32767" attributes="0"/>
               </Group>
@@ -96,6 +103,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="togglePassBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mostrar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="togglePassBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

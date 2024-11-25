@@ -35,9 +35,8 @@ import clases.*;
  */
 public class HospitalInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form BibliotecaInterfaz
-     */
+    private String rolUsuario;
+    private Principal principalP;
 
     private Image principalImage = new ImageIcon("src/main/resources/principalImg.png").getImage();
     private Image prestamoImage = new ImageIcon("src/main/resources/prestamoImg.png").getImage();
@@ -47,13 +46,12 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private Image logsImage = new ImageIcon("src/main/resources/logsImg.png").getImage();
     private Image logoImage = new ImageIcon("src/main/resources/alejandria.jpg").getImage();
     
-    private LoginPanel inicioSesion = new LoginPanel();
+    private LoginPanel inicioSesion = new LoginPanel(this);
     public HospitalInterfaz() {
         initComponents();
         initStyles();
-        initContent();
         
-        changeContent(inicioSesion);
+        ContentChange.changePanel(contentP, inicioSesion);
 
     }
 
@@ -66,26 +64,59 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        citasBtn = new javax.swing.JButton();
+        expedientesBtn = new javax.swing.JButton();
+        emergenciasBtn = new javax.swing.JButton();
+        salirBtn = new javax.swing.JButton();
+        principalBtn = new javax.swing.JButton();
         bg = new javax.swing.JPanel();
         menuPanel = new javax.swing.JPanel();
         menuOpciones = new javax.swing.JPanel();
         contenedorOpt = new javax.swing.JPanel();
-        principalOptP = new javax.swing.JPanel();
-        principalL = new javax.swing.JLabel();
-        prestamosOptP = new javax.swing.JPanel();
-        prestamosL = new javax.swing.JLabel();
-        devolucionesOptP = new javax.swing.JPanel();
-        devolucionesL = new javax.swing.JLabel();
-        miembrosOptP = new javax.swing.JPanel();
-        miembrosL = new javax.swing.JLabel();
-        catalogoOptP = new javax.swing.JPanel();
-        catalogoL = new javax.swing.JLabel();
-        logsOptP = new javax.swing.JPanel();
-        logsL = new javax.swing.JLabel();
         barraP = new javax.swing.JPanel();
         textoL1 = new javax.swing.JLabel();
         contentP = new javax.swing.JPanel();
         textoL = new javax.swing.JLabel();
+
+        citasBtn.setBackground(new java.awt.Color(189, 238, 252));
+        citasBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        citasBtn.setForeground(new java.awt.Color(88, 135, 237));
+        citasBtn.setText("Citas");
+        citasBtn.setMaximumSize(new java.awt.Dimension(300, 150));
+        citasBtn.setMinimumSize(new java.awt.Dimension(175, 75));
+        citasBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+
+        expedientesBtn.setBackground(new java.awt.Color(189, 238, 252));
+        expedientesBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        expedientesBtn.setForeground(new java.awt.Color(88, 135, 237));
+        expedientesBtn.setText("Expedientes");
+        expedientesBtn.setMaximumSize(new java.awt.Dimension(300, 150));
+        expedientesBtn.setMinimumSize(new java.awt.Dimension(175, 75));
+        expedientesBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+
+        emergenciasBtn.setBackground(new java.awt.Color(189, 238, 252));
+        emergenciasBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        emergenciasBtn.setForeground(new java.awt.Color(88, 135, 237));
+        emergenciasBtn.setText("Emergencias");
+        emergenciasBtn.setMaximumSize(new java.awt.Dimension(300, 150));
+        emergenciasBtn.setMinimumSize(new java.awt.Dimension(175, 75));
+        emergenciasBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+
+        salirBtn.setBackground(new java.awt.Color(189, 238, 252));
+        salirBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        salirBtn.setForeground(new java.awt.Color(88, 135, 237));
+        salirBtn.setText("Salir");
+        salirBtn.setMaximumSize(new java.awt.Dimension(300, 150));
+        salirBtn.setMinimumSize(new java.awt.Dimension(175, 75));
+        salirBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+
+        principalBtn.setBackground(new java.awt.Color(189, 238, 252));
+        principalBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        principalBtn.setForeground(new java.awt.Color(88, 135, 237));
+        principalBtn.setText("Principal");
+        principalBtn.setMaximumSize(new java.awt.Dimension(300, 150));
+        principalBtn.setMinimumSize(new java.awt.Dimension(175, 75));
+        principalBtn.setPreferredSize(new java.awt.Dimension(185, 75));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
@@ -106,299 +137,6 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         contenedorOpt.setMinimumSize(new java.awt.Dimension(175, 300));
         contenedorOpt.setPreferredSize(new java.awt.Dimension(185, 300));
         contenedorOpt.setLayout(new javax.swing.BoxLayout(contenedorOpt, javax.swing.BoxLayout.PAGE_AXIS));
-
-        principalOptP.setBackground(new java.awt.Color(189, 238, 252));
-        principalOptP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        principalOptP.setMaximumSize(new java.awt.Dimension(350, 100));
-        principalOptP.setMinimumSize(new java.awt.Dimension(175, 50));
-        principalOptP.setPreferredSize(new java.awt.Dimension(175, 50));
-        principalOptP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                principalOptPMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                principalOptPMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                principalOptPMouseExited(evt);
-            }
-        });
-
-        principalL.setBackground(new java.awt.Color(255, 255, 255));
-        principalL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        principalL.setForeground(new java.awt.Color(88, 135, 237));
-        principalL.setText("Principal");
-        principalL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                principalLMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                principalLMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                principalLMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout principalOptPLayout = new javax.swing.GroupLayout(principalOptP);
-        principalOptP.setLayout(principalOptPLayout);
-        principalOptPLayout.setHorizontalGroup(
-            principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalOptPLayout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addComponent(principalL, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        principalOptPLayout.setVerticalGroup(
-            principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(principalOptPLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(principalL)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
-
-        contenedorOpt.add(principalOptP);
-
-        prestamosOptP.setBackground(new java.awt.Color(189, 238, 252));
-        prestamosOptP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        prestamosOptP.setMaximumSize(new java.awt.Dimension(350, 100));
-        prestamosOptP.setMinimumSize(new java.awt.Dimension(175, 50));
-        prestamosOptP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                prestamosOptPMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                prestamosOptPMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                prestamosOptPMouseExited(evt);
-            }
-        });
-
-        prestamosL.setBackground(new java.awt.Color(255, 255, 255));
-        prestamosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        prestamosL.setForeground(new java.awt.Color(88, 135, 237));
-        prestamosL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        prestamosL.setText("Iniciar Sesión");
-        prestamosL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                prestamosLMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                prestamosLMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                prestamosLMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout prestamosOptPLayout = new javax.swing.GroupLayout(prestamosOptP);
-        prestamosOptP.setLayout(prestamosOptPLayout);
-        prestamosOptPLayout.setHorizontalGroup(
-            prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prestamosOptPLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(prestamosL, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(4, Short.MAX_VALUE))
-        );
-        prestamosOptPLayout.setVerticalGroup(
-            prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(prestamosOptPLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(prestamosL)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        contenedorOpt.add(prestamosOptP);
-
-        devolucionesOptP.setBackground(new java.awt.Color(189, 238, 252));
-        devolucionesOptP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        devolucionesOptP.setMaximumSize(new java.awt.Dimension(350, 100));
-        devolucionesOptP.setMinimumSize(new java.awt.Dimension(175, 50));
-        devolucionesOptP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                devolucionesOptPMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                devolucionesOptPMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                devolucionesOptPMouseExited(evt);
-            }
-        });
-
-        devolucionesL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        devolucionesL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        devolucionesL.setText("Expedientes");
-        devolucionesL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                devolucionesLMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                devolucionesLMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                devolucionesLMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout devolucionesOptPLayout = new javax.swing.GroupLayout(devolucionesOptP);
-        devolucionesOptP.setLayout(devolucionesOptPLayout);
-        devolucionesOptPLayout.setHorizontalGroup(
-            devolucionesOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, devolucionesOptPLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(devolucionesL, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        devolucionesOptPLayout.setVerticalGroup(
-            devolucionesOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, devolucionesOptPLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addComponent(devolucionesL)
-                .addGap(15, 15, 15))
-        );
-
-        contenedorOpt.add(devolucionesOptP);
-
-        miembrosOptP.setBackground(new java.awt.Color(189, 238, 252));
-        miembrosOptP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        miembrosOptP.setMaximumSize(new java.awt.Dimension(350, 100));
-        miembrosOptP.setMinimumSize(new java.awt.Dimension(175, 50));
-        miembrosOptP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                miembrosOptPMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                miembrosOptPMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                miembrosOptPMouseExited(evt);
-            }
-        });
-
-        miembrosL.setBackground(new java.awt.Color(0, 0, 0));
-        miembrosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        miembrosL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        miembrosL.setText("Recetas");
-        miembrosL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                miembrosLMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                miembrosLMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                miembrosLMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout miembrosOptPLayout = new javax.swing.GroupLayout(miembrosOptP);
-        miembrosOptP.setLayout(miembrosOptPLayout);
-        miembrosOptPLayout.setHorizontalGroup(
-            miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosOptPLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addComponent(miembrosL, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        miembrosOptPLayout.setVerticalGroup(
-            miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(miembrosOptPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(miembrosL)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-
-        contenedorOpt.add(miembrosOptP);
-
-        catalogoOptP.setBackground(new java.awt.Color(189, 238, 252));
-        catalogoOptP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        catalogoOptP.setMaximumSize(new java.awt.Dimension(350, 100));
-        catalogoOptP.setMinimumSize(new java.awt.Dimension(175, 50));
-        catalogoOptP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                catalogoOptPMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                catalogoOptPMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                catalogoOptPMouseExited(evt);
-            }
-        });
-
-        catalogoL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        catalogoL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        catalogoL.setText("Citas");
-        catalogoL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                catalogoLMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                catalogoLMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                catalogoLMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout catalogoOptPLayout = new javax.swing.GroupLayout(catalogoOptP);
-        catalogoOptP.setLayout(catalogoOptPLayout);
-        catalogoOptPLayout.setHorizontalGroup(
-            catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoOptPLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(catalogoL, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        catalogoOptPLayout.setVerticalGroup(
-            catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoOptPLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
-                .addComponent(catalogoL)
-                .addGap(15, 15, 15))
-        );
-
-        contenedorOpt.add(catalogoOptP);
-
-        logsOptP.setBackground(new java.awt.Color(189, 238, 252));
-        logsOptP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        logsOptP.setMaximumSize(new java.awt.Dimension(350, 100));
-        logsOptP.setMinimumSize(new java.awt.Dimension(175, 50));
-        logsOptP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logsOptPMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                logsOptPMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                logsOptPMouseExited(evt);
-            }
-        });
-
-        logsL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        logsL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logsL.setText("Pacientes");
-
-        javax.swing.GroupLayout logsOptPLayout = new javax.swing.GroupLayout(logsOptP);
-        logsOptP.setLayout(logsOptPLayout);
-        logsOptPLayout.setHorizontalGroup(
-            logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logsOptPLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(logsL, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        logsOptPLayout.setVerticalGroup(
-            logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logsOptPLayout.createSequentialGroup()
-                .addComponent(logsL, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
-        contenedorOpt.add(logsOptP);
 
         javax.swing.GroupLayout menuOpcionesLayout = new javax.swing.GroupLayout(menuOpciones);
         menuOpciones.setLayout(menuOpcionesLayout);
@@ -507,167 +245,47 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void prestamosOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseEntered
-        prestamosOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_prestamosOptPMouseEntered
-
-    private void devolucionesOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseEntered
-        devolucionesOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_devolucionesOptPMouseEntered
-
-    private void miembrosOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseEntered
-        miembrosOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_miembrosOptPMouseEntered
-
-    private void prestamosOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseExited
-        prestamosOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_prestamosOptPMouseExited
-
-    private void devolucionesOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseExited
-        devolucionesOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_devolucionesOptPMouseExited
-
-    private void miembrosOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseExited
-        miembrosOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_miembrosOptPMouseExited
-
-    private void logsOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseEntered
-        logsOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_logsOptPMouseEntered
-
-    private void logsOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseExited
-        logsOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_logsOptPMouseExited
-
-    private void catalogoOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseExited
-        catalogoOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_catalogoOptPMouseExited
-
-    private void catalogoOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseEntered
-        catalogoOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_catalogoOptPMouseEntered
-
-    private void prestamosOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseClicked
-       
-
-    }//GEN-LAST:event_prestamosOptPMouseClicked
-
-    private void devolucionesOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseClicked
-  
-    }//GEN-LAST:event_devolucionesOptPMouseClicked
-
-    private void miembrosOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseClicked
-
-    }//GEN-LAST:event_miembrosOptPMouseClicked
-
-    private void catalogoOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseClicked
-
-    }//GEN-LAST:event_catalogoOptPMouseClicked
-
-    private void logsOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseClicked
-
-    }//GEN-LAST:event_logsOptPMouseClicked
-
-    private void prestamosLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseClicked
-
-    }//GEN-LAST:event_prestamosLMouseClicked
-
-    private void devolucionesLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseClicked
-
-    }//GEN-LAST:event_devolucionesLMouseClicked
-
-    private void miembrosLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseClicked
-
-    }//GEN-LAST:event_miembrosLMouseClicked
-
-    private void catalogoLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseClicked
-
-    }//GEN-LAST:event_catalogoLMouseClicked
-
-    private void catalogoLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseEntered
-        catalogoOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_catalogoLMouseEntered
-
-    private void prestamosLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseEntered
-        prestamosOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_prestamosLMouseEntered
-
-    private void devolucionesLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseEntered
-        devolucionesOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_devolucionesLMouseEntered
-
-    private void miembrosLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseEntered
-        miembrosOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_miembrosLMouseEntered
-
-    private void devolucionesLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseExited
-        devolucionesOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_devolucionesLMouseExited
-
-    private void prestamosLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseExited
-        prestamosOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_prestamosLMouseExited
-
-    private void miembrosLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseExited
-        miembrosOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_miembrosLMouseExited
-
-    private void catalogoLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseExited
-        catalogoOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_catalogoLMouseExited
-
-    private void principalOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseExited
-        principalOptP.setBackground(new Color(51,153,255));
-    }//GEN-LAST:event_principalOptPMouseExited
-
-    private void principalOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseEntered
-        principalOptP.setBackground(new Color(153, 204, 255));
-    }//GEN-LAST:event_principalOptPMouseEntered
-
-    private void principalOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseClicked
-        initContent();
-    }//GEN-LAST:event_principalOptPMouseClicked
-
-    private void principalLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseExited
-        principalOptP.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_principalLMouseExited
-
-    private void principalLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseEntered
-        principalOptP.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_principalLMouseEntered
-
-    private void principalLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseClicked
-        initContent();
-    }//GEN-LAST:event_principalLMouseClicked
-
     private ImageIcon resizeImage(Image image, JLabel label){
         ImageIcon img = new ImageIcon(image.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
         return img;
     }
     
     private void initStyles(){
-        principalL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
-        prestamosL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
-        devolucionesL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
-        miembrosL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
-        catalogoL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
-        logsL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         textoL.putClientProperty( "FlatLaf.styleClass",  "h4");
         textoL.setFont(textoL.getFont().deriveFont(Font.ITALIC));
     }
     
-    private void initContent(){
-        changeContent(new Principal());
+    public void initContent(){
+        this.principalP = new Principal(rolUsuario);
+        ContentChange.changePanel(contentP, principalP);
+        contenedorOpt.add(principalBtn);
+        switch(rolUsuario){
+            case "MEDICO":
+                contenedorOpt.add(expedientesBtn);
+                break;
+            case "RECEPCIONISTA":
+                contenedorOpt.add(citasBtn);
+                contenedorOpt.add(emergenciasBtn);
+                break;
+            case "RECEPCIONISTA PERSONAL":
+                contenedorOpt.add(citasBtn);
+                contenedorOpt.add(emergenciasBtn);
+                break;
+            default:
+                break;
+        }
+        contenedorOpt.add(salirBtn);
+    }
+
+    public String getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(String rolUsuario) {
+        this.rolUsuario = rolUsuario;
     }
     
-    private void changeContent(JPanel panel){
-        panel.setSize(contentP.getWidth(), contentP.getHeight());
-        panel.setLocation(0,0);
-        contentP.removeAll();
-        contentP.add(panel, BorderLayout.CENTER);
-        contentP.revalidate();
-        contentP.repaint();
-    }
+    
     
 
     
@@ -721,22 +339,15 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel barraP;
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel catalogoL;
-    private javax.swing.JPanel catalogoOptP;
+    private javax.swing.JButton citasBtn;
     private javax.swing.JPanel contenedorOpt;
     private javax.swing.JPanel contentP;
-    private javax.swing.JLabel devolucionesL;
-    private javax.swing.JPanel devolucionesOptP;
-    private javax.swing.JLabel logsL;
-    private javax.swing.JPanel logsOptP;
+    private javax.swing.JButton emergenciasBtn;
+    private javax.swing.JButton expedientesBtn;
     private javax.swing.JPanel menuOpciones;
     private javax.swing.JPanel menuPanel;
-    private javax.swing.JLabel miembrosL;
-    private javax.swing.JPanel miembrosOptP;
-    private javax.swing.JLabel prestamosL;
-    private javax.swing.JPanel prestamosOptP;
-    private javax.swing.JLabel principalL;
-    private javax.swing.JPanel principalOptP;
+    private javax.swing.JButton principalBtn;
+    private javax.swing.JButton salirBtn;
     private javax.swing.JLabel textoL;
     private javax.swing.JLabel textoL1;
     // End of variables declaration//GEN-END:variables

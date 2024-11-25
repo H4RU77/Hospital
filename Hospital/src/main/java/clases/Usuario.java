@@ -4,18 +4,25 @@
  */
 package clases;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author harum
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Usuario {
+    
     protected String nombreUsuario;
-    protected String contraseñaUsuario;
+    protected String contrasena;
+    protected String rol;
     
     public Usuario(String nombreUsuario, String contraseñaUsuario){
-        this.contraseñaUsuario=contraseñaUsuario;
+        this.contrasena=contraseñaUsuario;
         this.nombreUsuario=contraseñaUsuario;
     }
+    
+    public Usuario(){}
     
     public String getNombreUsuario(){
         return nombreUsuario;
@@ -24,11 +31,20 @@ public class Usuario {
         nombreUsuario=nuevoNombre;
     }
      public String getContraseñaUsuario(){
-        return contraseñaUsuario;
+        return contrasena;
     }
     public void setContraseñaUsuario(String nuevaContraseña){
-        contraseñaUsuario=nuevaContraseña;
+        contrasena=nuevaContraseña;
     }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+    
     
     public void iniciarSesión(){
         
