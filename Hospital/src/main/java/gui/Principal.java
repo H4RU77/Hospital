@@ -10,12 +10,12 @@ package gui;
  */
 public class Principal extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Principal
-     */
-    public Principal() {
+    private String rol;
+    public Principal(String rol) {
+        this.rol = rol;
         initComponents();
         initStyles();
+        initContent();
     }
 
     /**
@@ -27,16 +27,73 @@ public class Principal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        medicoP = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        recepcionistaP = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        recepcionistaPersonalP = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         bg = new javax.swing.JPanel();
-        bienvenidoL = new javax.swing.JLabel();
-        ayudaL = new javax.swing.JLabel();
-        descL = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("<html>\n<p>Interfaz Principal de Medico</p>\n</html>");
+
+        javax.swing.GroupLayout medicoPLayout = new javax.swing.GroupLayout(medicoP);
+        medicoP.setLayout(medicoPLayout);
+        medicoPLayout.setHorizontalGroup(
+            medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(medicoPLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 310, Short.MAX_VALUE))
+        );
+        medicoPLayout.setVerticalGroup(
+            medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(medicoPLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 135, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("<html> <p>Interfaz Principal de Recepcionista</p> </html>");
+
+        javax.swing.GroupLayout recepcionistaPLayout = new javax.swing.GroupLayout(recepcionistaP);
+        recepcionistaP.setLayout(recepcionistaPLayout);
+        recepcionistaPLayout.setHorizontalGroup(
+            recepcionistaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recepcionistaPLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 224, Short.MAX_VALUE))
+        );
+        recepcionistaPLayout.setVerticalGroup(
+            recepcionistaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recepcionistaPLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 147, Short.MAX_VALUE))
+        );
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("<html> <p>Interfaz Principal de Recepcionista Personal</p> </html>");
+
+        javax.swing.GroupLayout recepcionistaPersonalPLayout = new javax.swing.GroupLayout(recepcionistaPersonalP);
+        recepcionistaPersonalP.setLayout(recepcionistaPersonalPLayout);
+        recepcionistaPersonalPLayout.setHorizontalGroup(
+            recepcionistaPersonalPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recepcionistaPersonalPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(208, Short.MAX_VALUE))
+        );
+        recepcionistaPersonalPLayout.setVerticalGroup(
+            recepcionistaPersonalPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recepcionistaPersonalPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(109, Short.MAX_VALUE))
+        );
 
         setMinimumSize(new java.awt.Dimension(607, 347));
         setPreferredSize(new java.awt.Dimension(607, 347));
@@ -44,42 +101,11 @@ public class Principal extends javax.swing.JPanel {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setMinimumSize(new java.awt.Dimension(607, 347));
         bg.setPreferredSize(new java.awt.Dimension(607, 347));
+        bg.setLayout(new java.awt.BorderLayout());
 
-        bienvenidoL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        bienvenidoL.setText("¡Bienvenido!");
-
-        ayudaL.setText("<html>\nOperaciones:\n<ul>\n<li>Préstamos</li>\n<li>Devoluciones</li>\n<li>Registro y Edición de Miembros</li>\n<li>Registro y Edición de Libros</li>\n<li>Eliminar todo tipo de Registros</li>\n<li>Registrar y Consultar logs</li>\n</ul>\n</html>");
-
-        descL.setText("<html> Biblioteca \"Biblioteca de Alejandría\" presenta sus sistema de gestion, que facilita el proceso de prestamo <br></br> y devolución de libros y su registro en una base de datos. <br></br> <br></br> Este Sistema permite el manejo del catalogo en una manera óptima y sencilla,  con una interfaz <br></br> llamativa y amigable con el usuario. </html>");
-
-        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
-        bg.setLayout(bgLayout);
-        bgLayout.setHorizontalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(descL, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(ayudaL)
-                        .addGap(215, 215, 215)))
-                .addGap(18, 18, 18))
-            .addGroup(bgLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bienvenidoL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        bgLayout.setVerticalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(bienvenidoL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(descL)
-                .addGap(31, 31, 31)
-                .addComponent(ayudaL)
-                .addGap(55, 55, 55))
-        );
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Algo");
+        bg.add(jLabel4, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -93,17 +119,38 @@ public class Principal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-private void initStyles(){
-        bienvenidoL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );
-        descL.putClientProperty( "FlatLaf.style", "font: $defaultFont" );
-        ayudaL.putClientProperty( "FlatLaf.style", "font: $defaultFont" );
+    private void initStyles(){
     }
+    
+    private void initContent(){
+        System.out.println(rol);
+        switch(rol){
+            case "MEDICO":
+                ContentChange.changePanel(bg, medicoP);
+                medicoP.setVisible(true);
+                break;
+            case "RECEPCIONISTA":
+                ContentChange.changePanel(bg, recepcionistaP);
+                recepcionistaP.setVisible(true);
+                break;
+            case "RECEPCIONISTA PERSONAL":
+                ContentChange.changePanel(bg, recepcionistaPersonalP);
+                recepcionistaPersonalP.setVisible(true);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ayudaL;
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel bienvenidoL;
-    private javax.swing.JLabel descL;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel medicoP;
+    private javax.swing.JPanel recepcionistaP;
+    private javax.swing.JPanel recepcionistaPersonalP;
     // End of variables declaration//GEN-END:variables
 }

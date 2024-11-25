@@ -14,10 +14,10 @@ import javax.swing.SwingUtilities;
  */
 public class LoginPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form LoginPanel
-     */
-    public LoginPanel() {
+    private HospitalInterfaz mainInterface;
+    
+    public LoginPanel(HospitalInterfaz mainInterface) {
+        this.mainInterface = mainInterface;
         initComponents();
         errorTF.setVisible(false);
     }
@@ -36,6 +36,7 @@ public class LoginPanel extends javax.swing.JPanel {
         iniciarSesionBtn = new javax.swing.JButton();
         errorTF = new javax.swing.JLabel();
         contraPF = new javax.swing.JPasswordField();
+        togglePassBtn = new javax.swing.JToggleButton();
 
         nombreUsuarioTF.setText("Nombre de Usuario");
         nombreUsuarioTF.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +58,13 @@ public class LoginPanel extends javax.swing.JPanel {
 
         contraPF.setText("Contraseña");
 
+        togglePassBtn.setText("Mostrar");
+        togglePassBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                togglePassBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout bgPanelLayout = new javax.swing.GroupLayout(bgPanel);
         bgPanel.setLayout(bgPanelLayout);
         bgPanelLayout.setHorizontalGroup(
@@ -66,7 +74,10 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(nombreUsuarioTF)
                     .addComponent(contraPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                    .addComponent(errorTF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bgPanelLayout.createSequentialGroup()
+                        .addComponent(errorTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(togglePassBtn)))
                 .addGap(107, 107, 107))
             .addGroup(bgPanelLayout.createSequentialGroup()
                 .addGap(170, 170, 170)
@@ -81,8 +92,10 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGap(11, 11, 11)
                 .addComponent(contraPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errorTF)
-                .addGap(26, 26, 26)
+                .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(errorTF)
+                    .addComponent(togglePassBtn))
+                .addGap(22, 22, 22)
                 .addComponent(iniciarSesionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(117, Short.MAX_VALUE))
         );
@@ -105,12 +118,9 @@ public class LoginPanel extends javax.swing.JPanel {
         String nombreUsuario = nombreUsuarioTF.getText();
         String contrasena = new String(contraPF.getPassword());
         try {
-            if(Auth.iniciarSesion(nombreUsuario, contrasena)){
-                ContentChange.changePanel(bgPanel, new Principal());
-            } else {
-                errorTF.setText("Credenciales Incorrectas");
-                errorTF.setVisible(true);
-            }
+            String rol = Auth.iniciarSesion(nombreUsuario, contrasena);
+            mainInterface.setRolUsuario(rol);
+            mainInterface.initContent();
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -121,6 +131,16 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreUsuarioTFActionPerformed
 
+    private void togglePassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_togglePassBtnActionPerformed
+        if (togglePassBtn.isSelected()) {
+            contraPF.setEchoChar((char) 0);
+            togglePassBtn.setText("Ocultar");
+        } else {
+            contraPF.setEchoChar('•');
+            togglePassBtn.setText("Mostrar");
+        }
+    }//GEN-LAST:event_togglePassBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bgPanel;
@@ -128,5 +148,6 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel errorTF;
     private javax.swing.JButton iniciarSesionBtn;
     private javax.swing.JTextField nombreUsuarioTF;
+    private javax.swing.JToggleButton togglePassBtn;
     // End of variables declaration//GEN-END:variables
 }

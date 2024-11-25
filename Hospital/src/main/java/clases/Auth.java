@@ -4,13 +4,15 @@
  */
 package clases;
 import okhttp3.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  *
  * @author Keloc
  */
 public class Auth {
-    public static boolean iniciarSesion(String nombreUsuario, String contrasena) throws Exception {
+    public static String iniciarSesion(String nombreUsuario, String contrasena) throws Exception {
         OkHttpClient client = new OkHttpClient().newBuilder().build();
+        ObjectMapper objectMapper = new ObjectMapper();
         
         String json = "{\r\n    \"username\": \"" + nombreUsuario + "\",\r\n    \"password\": \"" + contrasena + "\"\r\n}";
         
@@ -26,12 +28,15 @@ public class Auth {
 
         try (Response response = client.newCall(request).execute()) {
             if (response.code() == 401){
-                return false;
+                return "Nombre de Usuario y/o Contraseña Incorrectos";
             }
             if (!response.isSuccessful()) {
                 throw new Exception("Error: " + response.code());
             }
-            return response.isSuccessful();
+            
+            String res = response.body().string();
+            Usuario usuario = objectMapper.readValue(res, Usuario.class);
+            return usuario.getRol();
         } 
     }
 }
