@@ -3,46 +3,58 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package clases;
-
+import okhttp3.*;
+import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
  *
  * @author harum
  */
+
+
+
 public class GestorUsuarios {
-    private ArrayList<Usuario> listaUsuarios;
-    
-    public GestorUsuarios() {
-        listaUsuarios = new ArrayList<>();
-    }
-    
-     public Usuario buscarUsuario(String nombreUsuario) {
-        for (Usuario usuario : listaUsuarios) {
-            if (usuario.getNombreUsuario().equals(nombreUsuario)) {
-                return usuario;
+    private static final String URL = "http://localhost:8080/api/usuarios/registro";
+
+    public static void registrarUsuario(String nombreUsuario, String contraseña, String rol, 
+                                        String especialidad, String numeroLicencia, String turno) throws Exception {
+        OkHttpClient client = new OkHttpClient();
+
+        // Crear el JSON para enviar
+        JSONObject json = new JSONObject();
+        json.put("nombreUsuario", nombreUsuario);
+        json.put("contraseña", contraseña);
+        json.put("rol", rol);
+
+        // Agregar datos específicos según el rol
+        if ("MEDICO".equals(rol)) {
+            json.put("especialidad", especialidad);
+            json.put("numeroLicencia", numeroLicencia);
+        } else if ("RECEPCIONISTA".equals(rol)) {
+            json.put("turno", turno);
+        }
+
+        // Crear el cuerpo de la solicitud
+        RequestBody body = RequestBody.create(json.toString(), MediaType.get("application/json; charset=utf-8"));
+
+        // Crear la solicitud HTTP
+        Request request = new Request.Builder()
+                .url(URL)
+                .post(body)
+                .build();
+
+        // Ejecutar la solicitud
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                throw new Exception("Error en el registro: " + response.message());
             }
         }
-        return null;
     }
-     
-      public void registrarUsuario(String nombreUsuario, String contraseñaUsuario) {
-        if (buscarUsuario(nombreUsuario) == null) {
-            Usuario nuevoUsuario = new Usuario(nombreUsuario, contraseñaUsuario);
-            listaUsuarios.add(nuevoUsuario);
-            System.out.println("Usuario registrado con éxito.");
-        } else {
-            System.out.println("El nombre de usuario ya está registrado.");
-        }
-    }
-      
-       public boolean validarUsuario(String nombreUsuario, String contraseñaUsuario) {
-        Usuario usuario = buscarUsuario(nombreUsuario);
-        if (usuario != null && usuario.getContraseñaUsuario().equals(contraseñaUsuario)) {
-            return true;
-        }
-        return false;
-    }
-    
-    
 }
+     
+     
+     
+
+    
+
