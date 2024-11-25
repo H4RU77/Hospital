@@ -11,8 +11,8 @@ package clases;
 public class Medico extends Usuario{
     
    private String nombre;
-    public Medico(String nombreUsuario, String contraseñaUsuario, String nombre) {
-        super(nombreUsuario, contraseñaUsuario);
+    public Medico(String nombreUsuario, String contrasenaUsuario, String nombre) {
+        super(nombreUsuario, contrasenaUsuario);
         this.nombre = nombre;
     }
 
