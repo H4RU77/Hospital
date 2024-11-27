@@ -298,7 +298,6 @@
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout">
                     <Property name="axis" type="int" value="3"/>
                   </Layout>
-
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
