@@ -3,6 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package gui;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 
 /**
  *
@@ -29,30 +43,151 @@ public class Principal extends javax.swing.JPanel {
 
         medicoP = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         recepcionistaP = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         recepcionistaPersonalP = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        popupMenu1 = new java.awt.PopupMenu();
+        popupMenu2 = new java.awt.PopupMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         bg = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        medicoP.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("<html>\n<p>Interfaz Principal de Medico</p>\n</html>");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Bienvenido(a) Doctor(a)");
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("¡Que tenga un excelente día!");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("Sus citas del día");
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setForeground(new java.awt.Color(0, 0, 0));
+
+        jButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 102));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medicine_resized_resized.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("Generar nueva receta");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(156, 156, 156))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout medicoPLayout = new javax.swing.GroupLayout(medicoP);
         medicoP.setLayout(medicoPLayout);
         medicoPLayout.setHorizontalGroup(
             medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medicoPLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 310, Short.MAX_VALUE))
+                .addGroup(medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(medicoPLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(medicoPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         medicoPLayout.setVerticalGroup(
             medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(medicoPLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 135, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
@@ -95,6 +230,14 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(109, Short.MAX_VALUE))
         );
 
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Expedientes");
+
+        popupMenu1.setLabel("popupMenu1");
+
+        popupMenu2.setLabel("popupMenu2");
+
         setMinimumSize(new java.awt.Dimension(607, 347));
         setPreferredSize(new java.awt.Dimension(607, 347));
 
@@ -118,6 +261,105 @@ public class Principal extends javax.swing.JPanel {
             .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        jButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        jButton1.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+      JTextField t1 = new JTextField(10);
+      JTextField t2 = new JTextField(10);
+      JTextField t3 = new JTextField(10);
+      JTextField t4 = new JTextField(15);
+      JTextArea t5 = new JTextArea(5,70);
+      
+      JPanel myPanel = new JPanel();
+      myPanel.setSize(200, 500);
+      // Configuración del panel y los componentes con alineación a la izquierda
+       myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
+
+        // Crear y añadir el label y text field para "Nombre del paciente"
+        JLabel label1 = new JLabel("Nombre del paciente:");
+        label1.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciador
+        myPanel.add(label1);
+
+        t1.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(t1);
+
+        // Crear y añadir el label y text field para "Edad"
+        JLabel label2 = new JLabel("Edad:");
+        label2.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
+        myPanel.add(label2);
+
+        t2.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(t2);
+
+        // Crear y añadir el label y text field para "Fecha"
+        JLabel label3 = new JLabel("Fecha:");
+        label3.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
+        myPanel.add(label3);
+
+        t3.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(t3);
+
+        // Crear y añadir el label y text area para "Diagnóstico"
+        JLabel label4 = new JLabel("Diagnóstico:");
+        label4.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
+        myPanel.add(label4);
+
+        t4.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(t4);
+
+        // Crear y añadir el label y text area para "Descripción"
+        JLabel label5 = new JLabel("Descripción:");
+        label5.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
+        myPanel.add(label5);
+        t5.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(t5);
+
+      
+      
+
+      int result = JOptionPane.showConfirmDialog(null, myPanel, 
+               "Ingrese los datos de la receta: ", JOptionPane.OK_CANCEL_OPTION);
+      if (result == JOptionPane.OK_OPTION) {
+          String nombrePaciente = t1.getText();
+          String edadPaciente = t2.getText();
+          String fechaPaciente = t3.getText();
+          String diagPaciente = t4.getText();
+          String descripcion = t5.getText();
+           JPanel confirmPanel = new JPanel();
+            JLabel confirmLabel = new JLabel();
+                myPanel.setSize(200, 500);
+          //Si se han ingresado correctamente todos los datos
+          if(nombrePaciente != null && !nombrePaciente.isEmpty() && 
+    edadPaciente != null && !edadPaciente.isEmpty() && 
+    fechaPaciente != null && !fechaPaciente.isEmpty() && 
+    diagPaciente != null && !diagPaciente.isEmpty() && 
+    descripcion != null && !descripcion.isEmpty()){
+              
+               confirmLabel.setText("Receta creada con éxito");
+                confirmPanel.add(confirmLabel);
+              JOptionPane.showMessageDialog(null, confirmPanel, 
+               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
+          }else{
+               confirmLabel.setText("Favor de llenar todos los campos");
+          }
+      }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     private void initStyles(){
     }
@@ -145,11 +387,23 @@ public class Principal extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel medicoP;
+    private java.awt.PopupMenu popupMenu1;
+    private java.awt.PopupMenu popupMenu2;
     private javax.swing.JPanel recepcionistaP;
     private javax.swing.JPanel recepcionistaPersonalP;
     // End of variables declaration//GEN-END:variables
