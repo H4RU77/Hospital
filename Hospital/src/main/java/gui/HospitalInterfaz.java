@@ -76,7 +76,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         menuPanel = new javax.swing.JPanel();
         menuOpciones = new javax.swing.JPanel();
         contenedorOpt = new javax.swing.JPanel();
-
+        jLabel1 = new javax.swing.JLabel();
         barraP = new javax.swing.JPanel();
         textoL1 = new javax.swing.JLabel();
         contentP = new javax.swing.JPanel();
@@ -167,6 +167,8 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         contenedorOpt.setPreferredSize(new java.awt.Dimension(185, 300));
         contenedorOpt.setLayout(new javax.swing.BoxLayout(contenedorOpt, javax.swing.BoxLayout.PAGE_AXIS));
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout menuOpcionesLayout = new javax.swing.GroupLayout(menuOpciones);
         menuOpciones.setLayout(menuOpcionesLayout);
         menuOpcionesLayout.setHorizontalGroup(
@@ -174,18 +176,23 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 2, Short.MAX_VALUE))
-            .addGroup(menuOpcionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menuOpcionesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         menuOpcionesLayout.setVerticalGroup(
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuOpcionesLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(128, 128, 128)
                 .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menuOpcionesLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(380, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
@@ -279,7 +286,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-  /* SEGUN GITHUB ESTO CAUSA CONFLICTOS :/ 
+ 
     private void citasBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_citasBtnMouseClicked
         ContentChange.changePanel(contentP, citasP);
     }//GEN-LAST:event_citasBtnMouseClicked
@@ -299,7 +306,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private void salirBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBtnMouseClicked
         System.exit(0);
     }//GEN-LAST:event_salirBtnMouseClicked
-   */
+   
 
     private ImageIcon resizeImage(Image image, JLabel label){
         ImageIcon img = new ImageIcon(image.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
@@ -387,10 +394,9 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton citasBtn;
     private javax.swing.JPanel contenedorOpt;
     private javax.swing.JPanel contentP;
-
     private javax.swing.JButton emergenciasBtn;
     private javax.swing.JButton expedientesBtn;
-
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel menuOpciones;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton principalBtn;

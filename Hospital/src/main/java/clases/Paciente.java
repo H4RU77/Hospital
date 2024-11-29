@@ -18,6 +18,8 @@ public class Paciente {
         this.edad = edad;
         this.telefono = telefono;
     }
+    
+    public Paciente(){}
 
     public String getNombre() {
         return nombre;
