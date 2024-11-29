@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package gui;
-import clases.Auth;
+import baseDeDatos.Auth;
 import clases.Usuario;
 import java.awt.Window;
 import javax.swing.JComponent;
