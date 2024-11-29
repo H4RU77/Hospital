@@ -379,7 +379,6 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel contentP;
     private javax.swing.JButton emergenciasBtn;
     private javax.swing.JButton expedientesBtn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel menuOpciones;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton principalBtn;
