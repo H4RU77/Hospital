@@ -39,14 +39,19 @@ public class LoginPanel extends javax.swing.JPanel {
         contraPF = new javax.swing.JPasswordField();
         togglePassBtn = new javax.swing.JToggleButton();
 
-        nombreUsuarioTF.setText("Nombre de Usuario");
+        bgPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        nombreUsuarioTF.setText("Ingresa nombre de usuario");
         nombreUsuarioTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreUsuarioTFActionPerformed(evt);
             }
         });
 
-        iniciarSesionBtn.setText("Iniciar Sesion");
+        iniciarSesionBtn.setBackground(new java.awt.Color(255, 255, 255));
+        iniciarSesionBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        iniciarSesionBtn.setForeground(new java.awt.Color(51, 51, 51));
+        iniciarSesionBtn.setText("Iniciar sesión");
         iniciarSesionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iniciarSesionBtnActionPerformed(evt);
@@ -58,6 +63,11 @@ public class LoginPanel extends javax.swing.JPanel {
         errorTF.setEnabled(false);
 
         contraPF.setText("Contraseña");
+        contraPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contraPFActionPerformed(evt);
+            }
+        });
 
         togglePassBtn.setText("Mostrar");
         togglePassBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -73,32 +83,33 @@ public class LoginPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgPanelLayout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(contraPF)
+                    .addComponent(iniciarSesionBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nombreUsuarioTF)
-                    .addComponent(contraPF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bgPanelLayout.createSequentialGroup()
+                    .addGroup(bgPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addComponent(errorTF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(126, 126, 126)
                         .addComponent(togglePassBtn)))
                 .addGap(107, 107, 107))
-            .addGroup(bgPanelLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(iniciarSesionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bgPanelLayout.setVerticalGroup(
             bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgPanelLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(nombreUsuarioTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(contraPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(nombreUsuarioTF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(errorTF)
-                    .addComponent(togglePassBtn))
-                .addGap(22, 22, 22)
-                .addComponent(iniciarSesionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addComponent(contraPF, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bgPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(togglePassBtn))
+                    .addGroup(bgPanelLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(errorTF)))
+                .addGap(44, 44, 44)
+                .addComponent(iniciarSesionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -141,6 +152,10 @@ public class LoginPanel extends javax.swing.JPanel {
             togglePassBtn.setText("Mostrar");
         }
     }//GEN-LAST:event_togglePassBtnActionPerformed
+
+    private void contraPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contraPFActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
