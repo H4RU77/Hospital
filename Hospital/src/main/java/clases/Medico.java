@@ -15,6 +15,8 @@ public class Medico extends Usuario{
         super(nombreUsuario, contrasenaUsuario);
         this.nombre = nombre;
     }
+    
+    public Medico(){}
 
     public String getNombre() {
         return nombre;

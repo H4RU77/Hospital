@@ -56,9 +56,6 @@ public class Principal extends javax.swing.JPanel {
         recepcionistaPersonalP = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        popupMenu1 = new java.awt.PopupMenu();
-        popupMenu2 = new java.awt.PopupMenu();
-        jPopupMenu1 = new javax.swing.JPopupMenu();
         bg = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -86,7 +83,6 @@ public class Principal extends javax.swing.JPanel {
         jButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medicine_resized_resized.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -233,10 +229,6 @@ public class Principal extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Expedientes");
-
-        popupMenu1.setLabel("popupMenu1");
-
-        popupMenu2.setLabel("popupMenu2");
 
         setMinimumSize(new java.awt.Dimension(607, 347));
         setPreferredSize(new java.awt.Dimension(607, 347));
@@ -398,12 +390,9 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel medicoP;
-    private java.awt.PopupMenu popupMenu1;
-    private java.awt.PopupMenu popupMenu2;
     private javax.swing.JPanel recepcionistaP;
     private javax.swing.JPanel recepcionistaPersonalP;
     // End of variables declaration//GEN-END:variables

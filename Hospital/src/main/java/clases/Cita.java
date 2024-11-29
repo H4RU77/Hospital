@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
  * @author Keloc
  */
 public class Cita {
+    private Long id;
     private int edad;
     private String telefono;
     private LocalDateTime fecha;
@@ -29,6 +30,14 @@ public class Cita {
     
     public Cita(){}
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public int getEdad() {
         return edad;
     }

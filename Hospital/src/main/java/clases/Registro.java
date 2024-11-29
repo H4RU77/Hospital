@@ -9,6 +9,7 @@ package clases;
  * @author Keloc
  */
 public class Registro {
+    private Long id;
     private Paciente Paciente;
     private String motivoVisita;
 
@@ -19,6 +20,14 @@ public class Registro {
     
     public Registro(){}
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public Paciente getPaciente() {
         return Paciente;
     }

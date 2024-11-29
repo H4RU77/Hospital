@@ -9,17 +9,26 @@ package clases;
  * @author Keloc
  */
 public class Expediente {
+    private Long id;
     private Medico medico;
     private Paciente paciente;
-    private String historialMedico;
+    private String historial_clinico;
 
-    public Expediente(Medico medico, Paciente paciente, String historialMedico) {
+    public Expediente(Medico medico, Paciente paciente, String historial_clinico) {
         this.medico = medico;
         this.paciente = paciente;
-        this.historialMedico = historialMedico;
+        this.historial_clinico = historial_clinico;
     }
     
     public Expediente(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Medico getMedico() {
         return medico;
@@ -37,12 +46,12 @@ public class Expediente {
         this.paciente = paciente;
     }
 
-    public String getHistorialMedico() {
-        return historialMedico;
+    public String getHistorial_clinico() {
+        return historial_clinico;
     }
 
-    public void setHistorialMedico(String historialMedico) {
-        this.historialMedico = historialMedico;
+    public void setHistorial_clinico(String historialMedico) {
+        this.historial_clinico = historialMedico;
     }
     
     
