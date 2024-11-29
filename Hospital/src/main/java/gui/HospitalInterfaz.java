@@ -174,7 +174,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         );
         menuOpcionesLayout.setVerticalGroup(
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuOpcionesLayout.createSequentialGroup()
+            .addGroup(menuOpcionesLayout.createSequentialGroup())
 
         );
 
