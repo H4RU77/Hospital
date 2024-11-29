@@ -4,6 +4,10 @@
  */
 package gui;
 
+import baseDeDatos.ExpControl;
+import clases.Medico;
+import clases.Usuario;
+
 /**
  *
  * @author Keloc
@@ -19,7 +23,9 @@ public class ExpedientesPanel extends javax.swing.JPanel {
     public ExpedientesPanel(HospitalInterfaz mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
+        ExpControl.getExpedientesMedico(mainFrame.getCurrUser().getId());
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

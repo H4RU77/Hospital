@@ -108,7 +108,6 @@ public class Principal extends javax.swing.JPanel {
         jButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medicine_resized_resized.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

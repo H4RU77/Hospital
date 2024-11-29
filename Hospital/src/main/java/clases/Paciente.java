@@ -9,6 +9,7 @@ package clases;
  * @author Keloc
  */
 public class Paciente {
+    private Long id;
     private String nombre;
     private int edad;
     private String telefono;
@@ -17,6 +18,16 @@ public class Paciente {
         this.nombre = nombre;
         this.edad = edad;
         this.telefono = telefono;
+    }
+    
+    public Paciente(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
