@@ -42,7 +42,6 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private Image logoImage = new ImageIcon("src/main/resources/alejandria.jpg").getImage();
     
     private LoginPanel inicioSesion = new LoginPanel(this);
-    private Component jLabel1;
     public HospitalInterfaz() {
         initComponents();
         initStyles();
@@ -161,21 +160,28 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         contenedorOpt.setPreferredSize(new java.awt.Dimension(185, 300));
         contenedorOpt.setLayout(new javax.swing.BoxLayout(contenedorOpt, javax.swing.BoxLayout.PAGE_AXIS));
 
-
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout menuOpcionesLayout = new javax.swing.GroupLayout(menuOpciones);
         menuOpciones.setLayout(menuOpcionesLayout);
         menuOpcionesLayout.setHorizontalGroup(
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuOpcionesLayout.createSequentialGroup()
-                .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
-
+                .addGroup(menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(menuOpcionesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         menuOpcionesLayout.setVerticalGroup(
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuOpcionesLayout.createSequentialGroup())
-
+            .addGroup(menuOpcionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
@@ -379,6 +385,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private javax.swing.JPanel contentP;
     private javax.swing.JButton emergenciasBtn;
     private javax.swing.JButton expedientesBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel menuOpciones;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JButton principalBtn;
