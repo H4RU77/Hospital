@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package gui;
+import clases.Paciente;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.HashSet;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -78,9 +80,6 @@ public class Principal extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         bg = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -108,6 +107,7 @@ public class Principal extends javax.swing.JPanel {
         jButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 102));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medicine_resized_resized.png"))); // NOI18N
         jButton1.setBorderPainted(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -238,6 +238,14 @@ public class Principal extends javax.swing.JPanel {
 
         jButton2.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ambulancia (1).png"))); // NOI18N
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -266,6 +274,14 @@ public class Principal extends javax.swing.JPanel {
 
         jButton3.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.focusColor"));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cita-medica (1).png"))); // NOI18N
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -278,15 +294,15 @@ public class Principal extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jButton3)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -301,12 +317,13 @@ public class Principal extends javax.swing.JPanel {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel12)))
-                .addGap(110, 110, 110)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(8, 8, 8)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -363,8 +380,16 @@ public class Principal extends javax.swing.JPanel {
         jPanel9.setBackground(new java.awt.Color(0, 0, 0));
         jPanel9.setPreferredSize(new java.awt.Dimension(169, 169));
 
-        jButton6.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.focusedBorderColor"));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-appointment_resized.png"))); // NOI18N
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cita-medica (1).png"))); // NOI18N
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton6MouseExited(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -393,6 +418,14 @@ public class Principal extends javax.swing.JPanel {
 
         jButton7.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medical-report_resized.png"))); // NOI18N
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton7MouseExited(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -470,6 +503,14 @@ public class Principal extends javax.swing.JPanel {
 
         jButton5.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ambulancia (1).png"))); // NOI18N
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton5MouseExited(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -534,42 +575,10 @@ public class Principal extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel5.setPreferredSize(new java.awt.Dimension(169, 169));
-
-        jButton4.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ambulancia (1).png"))); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout recepcionistaPersonalPLayout = new javax.swing.GroupLayout(recepcionistaPersonalP);
         recepcionistaPersonalP.setLayout(recepcionistaPersonalPLayout);
         recepcionistaPersonalPLayout.setHorizontalGroup(
             recepcionistaPersonalPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(recepcionistaPersonalPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(recepcionistaPersonalPLayout.createSequentialGroup()
                 .addComponent(recepcionistaP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 181, Short.MAX_VALUE))
@@ -578,14 +587,8 @@ public class Principal extends javax.swing.JPanel {
             recepcionistaPersonalPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recepcionistaPersonalPLayout.createSequentialGroup()
                 .addComponent(recepcionistaP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
-
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Expedientes");
 
         setMinimumSize(new java.awt.Dimension(607, 347));
         setPreferredSize(new java.awt.Dimension(607, 347));
@@ -847,14 +850,11 @@ public class Principal extends javax.swing.JPanel {
       }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
           JTextField t1 = new JTextField(10);
       JTextField t2 = new JTextField(10);
       JTextField t3 = new JTextField(10);
+      JTextField t4 = new JTextField(10);
    
       
       JPanel myPanel = new JPanel();
@@ -879,7 +879,16 @@ public class Principal extends javax.swing.JPanel {
 
         t2.setAlignmentX(Component.LEFT_ALIGNMENT);
         myPanel.add(t2);
+        
+        // Estado crítico
+        JLabel label4 = new JLabel("¿Estado crítico?(S/N):");
+        label4.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
+        myPanel.add(label4);
 
+        t3.setAlignmentX(Component.LEFT_ALIGNMENT);
+        myPanel.add(t4);
+        
         // Crear y añadir el label y text field para "Fecha"
         JLabel label3 = new JLabel("Razón de ingreso:");
         label3.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -895,15 +904,22 @@ public class Principal extends javax.swing.JPanel {
       if (result == JOptionPane.OK_OPTION) {
           String nombrePaciente = t1.getText();
           String edadPaciente = t2.getText();
-          String fechaPaciente = t3.getText();
+          
+          
+          
+          Paciente paciente = new Paciente();
+          paciente.setNombre(t1.getText()) ;
+          paciente.setEdad(Integer.parseInt(t2.getText()) );
+          String razonIngreso = t3.getText();
+          String estadoPaciente = t4.getText();
          
            JPanel confirmPanel = new JPanel();
             JLabel confirmLabel = new JLabel();
                 myPanel.setSize(200, 500);
           //Si se han ingresado correctamente todos los datos
-          if(nombrePaciente != null && !nombrePaciente.isEmpty() && 
+          if(estadoPaciente != null && !estadoPaciente.isEmpty() && nombrePaciente != null && !nombrePaciente.isEmpty() && 
     edadPaciente != null && !edadPaciente.isEmpty() && 
-    fechaPaciente != null && !fechaPaciente.isEmpty()){
+    razonIngreso!= null && !razonIngreso.isEmpty()){
               
                confirmLabel.setText("Registro creado con éxito");
                 confirmPanel.add(confirmLabel);
@@ -1012,6 +1028,53 @@ public class Principal extends javax.swing.JPanel {
    
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+       jButton2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+
+        jButton2.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        jButton3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+      
+        jButton3.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
+        jButton5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jButton5MouseEntered
+
+    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
+
+        jButton5.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton5MouseExited
+
+    private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
+        jButton6.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
+    }//GEN-LAST:event_jButton6MouseEntered
+
+    private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
+      jButton6.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton6MouseExited
+
+    private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
+        jButton7.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+       
+    }//GEN-LAST:event_jButton7MouseEntered
+
+    private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
+        
+        jButton7.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton7MouseExited
+
     private void initStyles(){
     }
     
@@ -1041,7 +1104,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1055,7 +1117,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1065,7 +1126,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;

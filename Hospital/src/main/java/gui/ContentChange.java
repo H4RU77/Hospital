@@ -5,7 +5,9 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,4 +23,6 @@ public class ContentChange {
         origin.revalidate();
         origin.repaint();
     }
+    
+     
 }

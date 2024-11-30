@@ -135,6 +135,7 @@ public class LoginPanel extends javax.swing.JPanel {
             mainInterface.initContent();
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getStackTrace());
         }
         
     }//GEN-LAST:event_iniciarSesionBtnActionPerformed
