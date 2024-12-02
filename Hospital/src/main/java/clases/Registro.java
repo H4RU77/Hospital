@@ -4,18 +4,24 @@
  */
 package clases;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDate;
+
 /**
  *
  * @author Keloc
  */
 public class Registro {
     private Long id;
-    private Paciente Paciente;
-    private String motivoVisita;
+    private Paciente idPaciente;
+    private String razonVisita;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate fecha;
 
     public Registro(Paciente Paciente, String motivoVisita) {
-        this.Paciente = Paciente;
-        this.motivoVisita = motivoVisita;
+        this.idPaciente = Paciente;
+        this.razonVisita = motivoVisita;
+        this.fecha = LocalDate.now();
     }
     
     public Registro(){}
@@ -28,19 +34,27 @@ public class Registro {
         this.id = id;
     }
     
-    public Paciente getPaciente() {
-        return Paciente;
+    public Paciente getIdPaciente() {
+        return idPaciente;
     }
 
-    public void setPaciente(Paciente Paciente) {
-        this.Paciente = Paciente;
+    public void setIdPaciente(Paciente idPaciente) {
+        this.idPaciente = idPaciente;
     }
 
-    public String getMotivoVisita() {
-        return motivoVisita;
+    public String getRazonVisita() {
+        return razonVisita;
     }
 
-    public void setMotivoVisita(String motivoVisita) {
-        this.motivoVisita = motivoVisita;
+    public void setRazonVisita(String razonVisita) {
+        this.razonVisita = razonVisita;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 }

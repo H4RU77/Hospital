@@ -3,14 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package baseDeDatos;
+import clases.Medico;
 import clases.Usuario;
+import com.fasterxml.jackson.core.type.TypeReference;
 import okhttp3.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Keloc
  */
 public class Auth {
+    private final static String URL = "https://backendhospital-6gpo.onrender.com/usuarios";
+    
     public static Usuario iniciarSesion(String nombreUsuario, String contrasena) throws Exception {
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         ObjectMapper objectMapper = new ObjectMapper();
@@ -22,7 +28,7 @@ public class Auth {
         RequestBody body = RequestBody.create(mediaType, json);
 
         Request request = new Request.Builder()
-            .url("https://backendhospital-6gpo.onrender.com/usuarios/auth/login")
+            .url(URL+"/auth/login")
             .method("POST", body)
             .addHeader("Content-Type", "application/json")
             .build();
@@ -40,5 +46,32 @@ public class Auth {
             System.out.println(usuario.getNombreUsuario() + ", "+ usuario.getContrasena() + ", " + usuario.getRol());
             return usuario;
         } 
+    }
+    
+    public static List<Medico> getMedicos(){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Request request = new Request.Builder()
+            .url(URL+"/medicos")
+            .method("GET", null)
+            .addHeader("Content-Type", "application/json")
+            .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (response.code() == 401){
+                return null;
+            }
+            if (!response.isSuccessful()) {
+                throw new Exception("Error: " + response.message());
+            }
+            
+            String res = response.body().string();
+            List<Medico> meds = objectMapper.readValue(res, new TypeReference<List<Medico>>() {});
+            return meds;
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } 
+        return null;
     }
 }

@@ -10,8 +10,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.util.HashSet;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -50,12 +48,9 @@ public class Principal extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        recetaBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         recepcionistaP = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -97,32 +92,28 @@ public class Principal extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Sus citas del día");
-
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 102));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medicine_resized_resized.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        recetaBtn.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
+        recetaBtn.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        recetaBtn.setForeground(new java.awt.Color(0, 0, 102));
+        recetaBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/medicine_resized_resized.png"))); // NOI18N
+        recetaBtn.setBorderPainted(false);
+        recetaBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                recetaBtnMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
+                recetaBtnMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                recetaBtnMouseExited(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        recetaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                recetaBtnActionPerformed(evt);
             }
         });
 
@@ -132,14 +123,14 @@ public class Principal extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(recetaBtn)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(recetaBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -147,40 +138,25 @@ public class Principal extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Generar nueva receta");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("9:00 AM - López Matías\n\n10:00 AM - Vargas Ramírez");
-        jScrollPane1.setViewportView(jTextArea1);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel8)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addContainerGap(255, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(156, 156, 156))
+                .addGap(250, 250, 250))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel9)
                 .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout medicoPLayout = new javax.swing.GroupLayout(medicoP);
@@ -190,13 +166,13 @@ public class Principal extends javax.swing.JPanel {
             .addGroup(medicoPLayout.createSequentialGroup()
                 .addGroup(medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(medicoPLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(medicoPLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
                         .addGroup(medicoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(medicoPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(9, Short.MAX_VALUE))
         );
         medicoPLayout.setVerticalGroup(
@@ -614,19 +590,19 @@ public class Principal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void recetaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recetaBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_recetaBtnActionPerformed
 
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        jButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_jButton1MouseEntered
+    private void recetaBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recetaBtnMouseEntered
+        recetaBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_recetaBtnMouseEntered
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_jButton1MouseExited
+    private void recetaBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recetaBtnMouseExited
+        recetaBtn.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_recetaBtnMouseExited
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void recetaBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recetaBtnMouseClicked
       JTextField t1 = new JTextField(10);
       JTextField t2 = new JTextField(10);
       JTextField t3 = new JTextField(10);
@@ -714,7 +690,7 @@ public class Principal extends javax.swing.JPanel {
                "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
           }
       }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_recetaBtnMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         JTextField t1 = new JTextField(10);
@@ -1101,7 +1077,6 @@ public class Principal extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
@@ -1119,7 +1094,6 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -1130,11 +1104,10 @@ public class Principal extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel medicoP;
     private javax.swing.JPanel recepcionistaP;
     private javax.swing.JPanel recepcionistaP1;
     private javax.swing.JPanel recepcionistaPersonalP;
+    private javax.swing.JButton recetaBtn;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,29 @@ import javax.swing.JOptionPane;
 public class ExpControl {
     private static final String URL = "https://backendhospital-6gpo.onrender.com/expedientes";
     
+    public static List<Expediente> getExpedientes(){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+
+            Request request = new Request.Builder()
+                .url(URL)
+                .method("GET", null)
+                .addHeader("Content-Type", "application/json")
+                .build();
+            
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()){
+                String resBody = response.body().string();
+                List<Expediente> exps = objectMapper.readValue(resBody, new TypeReference<List<Expediente>>() {});
+                return exps;
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return null;
+    }
+    
     public static List<Expediente> getExpedientesMedico(Long idMed){
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         ObjectMapper objectMapper = new ObjectMapper();
@@ -31,9 +54,6 @@ public class ExpControl {
             if (response.isSuccessful()){
                 String resBody = response.body().string();
                 List<Expediente> exps = objectMapper.readValue(resBody, new TypeReference<List<Expediente>>() {});
-                for (Expediente exp : exps){
-                    System.out.println(exp.getMedico().getNombre() + ", " + exp.getPaciente().getNombre());
-                }
                 return exps;
             }
         } catch(Exception e){
@@ -42,7 +62,7 @@ public class ExpControl {
         return null;
     }
     
-    public static Expediente getExpedientePaciente(String idPac){
+    public static Expediente getExpedientePaciente(Long idPac){
         OkHttpClient client = new OkHttpClient().newBuilder().build();
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -56,7 +76,7 @@ public class ExpControl {
             Response response = client.newCall(request).execute();
             if (response.isSuccessful()){
                 String resBody = response.body().string();
-                Expediente exp = objectMapper.readValue(resBody, new TypeReference<Expediente>() {});
+                Expediente exp = objectMapper.readValue(resBody, Expediente.class);
                 System.out.println(exp.getMedico().getNombre() + ", " + exp.getPaciente().getNombre());               
                 return exp;
             }
@@ -72,6 +92,7 @@ public class ExpControl {
         try {
             MediaType mediaType = MediaType.parse("application/json");
             String json = objectMapper.writeValueAsString(ex);
+            System.out.println(json);
             RequestBody body = RequestBody.create(mediaType, json);
             Request request = new Request.Builder()
                 .url(URL+"/crear")

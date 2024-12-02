@@ -34,7 +34,13 @@
             <artifactId>json</artifactId>
             <version>20240303</version>
         </dependency>
-
+        
+        <!-- Jasper Reports -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.20.6</version>
+        </dependency>
 
     </dependencies>
     <properties>

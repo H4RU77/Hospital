@@ -16,8 +16,7 @@ public class Emergencia {
     private String nombrePaciente;
     private String razonIngreso;
 
-    public Emergencia(Long id, String consultorio, int edad, boolean estadoCritico, String nombrePaciente, String razonIngreso) {
-        this.id = id;
+    public Emergencia(String consultorio, int edad, boolean estadoCritico, String nombrePaciente, String razonIngreso) {
         this.consultorio = consultorio;
         this.edad = edad;
         this.estadoCritico = estadoCritico;

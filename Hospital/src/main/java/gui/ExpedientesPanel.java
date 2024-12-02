@@ -5,8 +5,14 @@
 package gui;
 
 import baseDeDatos.ExpControl;
+import baseDeDatos.PacienteControl;
+import clases.Expediente;
 import clases.Medico;
-import clases.Usuario;
+import clases.Paciente;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +30,7 @@ public class ExpedientesPanel extends javax.swing.JPanel {
         this.mainFrame = mainFrame;
         initComponents();
         ExpControl.getExpedientesMedico(mainFrame.getCurrUser().getId());
+        initTable();
     }
     
 
@@ -36,6 +43,16 @@ public class ExpedientesPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        consultaExpPanel = new javax.swing.JPanel();
+        nomPacLabel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        historialArea = new javax.swing.JTextArea();
+        datosExpedientePanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        addExpIdP = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        addExpTA = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -49,6 +66,76 @@ public class ExpedientesPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         tituloF = new javax.swing.JRadioButton();
         autorF = new javax.swing.JRadioButton();
+        reloadBtn = new javax.swing.JButton();
+
+        nomPacLabel.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        nomPacLabel.setText("Nombre del Paciente");
+
+        historialArea.setEditable(false);
+        historialArea.setColumns(20);
+        historialArea.setRows(5);
+        jScrollPane2.setViewportView(historialArea);
+
+        javax.swing.GroupLayout consultaExpPanelLayout = new javax.swing.GroupLayout(consultaExpPanel);
+        consultaExpPanel.setLayout(consultaExpPanelLayout);
+        consultaExpPanelLayout.setHorizontalGroup(
+            consultaExpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consultaExpPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(consultaExpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nomPacLabel)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        consultaExpPanelLayout.setVerticalGroup(
+            consultaExpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(consultaExpPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(nomPacLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel2.setText("Id del Paciente:");
+
+        addExpTA.setColumns(20);
+        addExpTA.setLineWrap(true);
+        addExpTA.setRows(5);
+        jScrollPane3.setViewportView(addExpTA);
+
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel3.setText("Historial Clinico");
+
+        javax.swing.GroupLayout datosExpedientePanelLayout = new javax.swing.GroupLayout(datosExpedientePanel);
+        datosExpedientePanel.setLayout(datosExpedientePanelLayout);
+        datosExpedientePanelLayout.setHorizontalGroup(
+            datosExpedientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(datosExpedientePanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(datosExpedientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(datosExpedientePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(addExpIdP, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        datosExpedientePanelLayout.setVerticalGroup(
+            datosExpedientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(datosExpedientePanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(datosExpedientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(addExpIdP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
 
         setMinimumSize(new java.awt.Dimension(605, 360));
 
@@ -165,6 +252,13 @@ public class ExpedientesPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        reloadBtn.setText("Reiniciar");
+        reloadBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reloadBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -173,6 +267,10 @@ public class ExpedientesPanel extends javax.swing.JPanel {
                 .addGap(110, 110, 110)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(123, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(reloadBtn)
+                .addGap(192, 192, 192))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(8, 8, 8)
@@ -202,7 +300,9 @@ public class ExpedientesPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(reloadBtn)
+                .addContainerGap(239, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(63, 63, 63)
@@ -240,15 +340,55 @@ public class ExpedientesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_buscadorActionPerformed
 
     private void inspeccionarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inspeccionarBtnActionPerformed
-        // TODO add your handling code here:
+        try {
+            int row = tablaExpedientes.getSelectedRow();
+            Long idPaciente = (Long) tablaExpedientes.getValueAt(row, 0);
+            Expediente exp = ExpControl.getExpedientePaciente(idPaciente);
+            String nombrePaciente = exp.getPaciente().getNombre();
+            String historial = exp.getHistorial_clinico();
+            nomPacLabel.setText(nombrePaciente);
+            historialArea.setText(historial);
+            JOptionPane.showMessageDialog(null, consultaExpPanel);
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_inspeccionarBtnActionPerformed
 
     private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
-       
+        try {
+            int row = tablaExpedientes.getSelectedRow();
+            Long idPac = (Long) tablaExpedientes.getValueAt(row, 0);
+            Expediente exp = ExpControl.getExpedientePaciente(idPac);
+            int res = JOptionPane.showConfirmDialog(null, "El expediente seleccionado será eliminado, ¿desea continuar?", 
+                    "Eliminar Expediente", JOptionPane.OK_CANCEL_OPTION);
+            if(res == 0){
+                ExpControl.deleteExpediente(exp);
+                initTable();
+                JOptionPane.showMessageDialog(null, "Expediente Eliminado Exitosamente");
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_BorrarActionPerformed
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
-        
+        addExpIdP.setEditable(false);
+        try {
+            int row = tablaExpedientes.getSelectedRow();
+            Long idPac = (Long) tablaExpedientes.getValueAt(row, 0);
+            Expediente exp = ExpControl.getExpedientePaciente(idPac);
+            addExpIdP.setText(String.valueOf(exp.getPaciente().getId()));
+            addExpTA.setText(exp.getHistorial_clinico());
+            int res = JOptionPane.showConfirmDialog(null, datosExpedientePanel, "Editar Historial Clinico", JOptionPane.OK_CANCEL_OPTION);
+            if(res == 0){
+                String historial = addExpTA.getText();
+                exp.setHistorial_clinico(historial);
+                ExpControl.updateExpediente(exp);
+                JOptionPane.showMessageDialog(null, "¡Expediente Editado Exitosamente!");  
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_EditActionPerformed
 
     private void AnadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnadirMouseClicked
@@ -256,11 +396,41 @@ public class ExpedientesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_AnadirMouseClicked
 
     private void AnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirActionPerformed
-        
+        addExpIdP.setEditable(true);
+        int res = JOptionPane.showConfirmDialog(null, datosExpedientePanel, "Crear Expediente", JOptionPane.OK_CANCEL_OPTION);
+        if(res == 0){
+            try {
+                Medico med = (Medico) mainFrame.getCurrUser();
+                Paciente pac = PacienteControl.getPacienteById(Long.parseLong(addExpIdP.getText()));
+                String historial = addExpTA.getText();
+                System.out.println(med.getNombre() + "\n"+ pac.getNombre() + "\n" + historial);
+                Expediente exp = new Expediente(med, pac, historial);
+                ExpControl.saveExpediente(exp);
+                initTable();
+                JOptionPane.showMessageDialog(null, "¡Expediente Creado Exitosamente!");
+            } catch(Exception e){
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
     }//GEN-LAST:event_AnadirActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-        
+        try {
+            Expediente ex;
+            List<Expediente> exp = new ArrayList();
+            if(tituloF.isSelected()){
+                String nom = buscador.getText();
+                Paciente pac = PacienteControl.getPacienteNom(nom);
+                ex = ExpControl.getExpedientePaciente(pac.getId());
+            } else {
+                Long idPaciente = Long.parseLong(buscador.getText());
+                ex = ExpControl.getExpedientePaciente(idPaciente);
+            }
+            exp.add(ex);
+            setTable(exp);
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_buscarBtnActionPerformed
 
     private void autorFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autorFActionPerformed
@@ -271,19 +441,51 @@ public class ExpedientesPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_tituloFActionPerformed
 
+    private void reloadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadBtnActionPerformed
+        initTable();
+    }//GEN-LAST:event_reloadBtnActionPerformed
+    
+    private void initTable(){
+        List<Expediente> exps = ExpControl.getExpedientesMedico(mainFrame.getCurrUser().getId());
+        setTable(exps);
+    }
+    
+    private void setTable(List<Expediente> exps){
+        String[] tblH = {"Id del Paciente", "Nombre del Paciente"};
+        DefaultTableModel model = new DefaultTableModel(tblH, 0);
+        for(Expediente exp: exps){
+            Object[] row = {exp.getPaciente().getId(), exp.getPaciente().getNombre()};
+            model.addRow(row);
+        }
+        tablaExpedientes.setModel(model);
+        tablaExpedientes.setDefaultEditor(Object.class, null);
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
     private javax.swing.JButton Edit;
+    private javax.swing.JTextField addExpIdP;
+    private javax.swing.JTextArea addExpTA;
     private javax.swing.JRadioButton autorF;
     private javax.swing.JTextField buscador;
     private javax.swing.JButton buscarBtn;
+    private javax.swing.JPanel consultaExpPanel;
+    private javax.swing.JPanel datosExpedientePanel;
+    private javax.swing.JTextArea historialArea;
     private javax.swing.JButton inspeccionarBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel nomPacLabel;
+    private javax.swing.JButton reloadBtn;
     private javax.swing.JTable tablaExpedientes;
     private javax.swing.JRadioButton tituloF;
     // End of variables declaration//GEN-END:variables
