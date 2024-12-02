@@ -51,7 +51,7 @@ public class EmergenciaControl {
         try {
 
             Request request = new Request.Builder()
-                .url(URL+"/"+nomPac)
+                .url(URL+"/paciente/"+nomPac)
                 .method("GET", null)
                 .addHeader("Content-Type", "application/json")
                 .build();
@@ -82,7 +82,7 @@ public class EmergenciaControl {
             Response response = client.newCall(request).execute();
             if (response.isSuccessful()){
                 String resBody = response.body().string();
-                Emergencia em = objectMapper.readValue(resBody, new TypeReference<Emergencia>() {});
+                Emergencia em = objectMapper.readValue(resBody, Emergencia.class);
                 return em;
             }
         } catch(Exception e){

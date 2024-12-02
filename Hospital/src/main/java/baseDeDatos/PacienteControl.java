@@ -5,8 +5,10 @@
 package baseDeDatos;
 
 import clases.Paciente;
+import clases.Registro;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import java.util.List;
 import javax.swing.JOptionPane;
 import okhttp3.MediaType;
@@ -59,7 +61,30 @@ public class PacienteControl {
             Response response = client.newCall(request).execute();
             if (response.isSuccessful()){
                 String resBody = response.body().string();
-                Paciente pac = objectMapper.readValue(resBody, new TypeReference<Paciente>() {});
+                Paciente pac = objectMapper.readValue(resBody, Paciente.class);
+                return pac;
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return null;
+    }
+    
+    public static Paciente getPacienteById(Long idPaciente){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+
+            Request request = new Request.Builder()
+                .url(URL+"/id/"+idPaciente)
+                .method("GET", null)
+                .addHeader("Content-Type", "application/json")
+                .build();
+            
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()){
+                String resBody = response.body().string();
+                Paciente pac = objectMapper.readValue(resBody, Paciente.class);
                 return pac;
             }
         } catch(Exception e){
@@ -76,7 +101,7 @@ public class PacienteControl {
             String json = objectMapper.writeValueAsString(p);
             RequestBody body = RequestBody.create(mediaType, json);
             Request request = new Request.Builder()
-                .url(URL+"/registrar")
+                .url(URL+"/registro")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
                 .build();
@@ -88,6 +113,32 @@ public class PacienteControl {
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+    }
+    
+    public static Registro saveRegistro(Registro reg){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        try {
+            MediaType mediaType = MediaType.parse("application/json");
+            String json = objectMapper.writeValueAsString(reg);
+            RequestBody body = RequestBody.create(mediaType, json);
+            Request request = new Request.Builder()
+                .url(URL+"/visitas/registrar")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+                .build();
+            
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()){
+                String resBody = response.body().string();
+                Registro r = objectMapper.readValue(resBody, Registro.class);
+                return r;
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return null;
     }
     
     public static void updatePaciente(Paciente p){
@@ -132,5 +183,29 @@ public class PacienteControl {
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+    }
+    
+    public static List<Registro> getRegistros(Long idPac){
+        OkHttpClient client = new OkHttpClient().newBuilder().build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        try {
+
+            Request request = new Request.Builder()
+                .url(URL+"/visitas/"+idPac)
+                .method("GET", null)
+                .addHeader("Content-Type", "application/json")
+                .build();
+            
+            Response response = client.newCall(request).execute();
+            if (response.isSuccessful()){
+                String resBody = response.body().string();
+                List<Registro> pacs = objectMapper.readValue(resBody, new TypeReference<List<Registro>>() {});
+                return pacs;
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return null;
     }
 }

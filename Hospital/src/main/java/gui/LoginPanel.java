@@ -5,10 +5,7 @@
 package gui;
 import baseDeDatos.Auth;
 import clases.Usuario;
-import java.awt.Window;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 /**
  *
  * @author Keloc

@@ -4,7 +4,23 @@
  */
 package gui;
 
-import clases.Usuario;
+import baseDeDatos.Auth;
+import baseDeDatos.CitaControl;
+import clases.Cita;
+import clases.Medico;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Month;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,10 +33,12 @@ public class CitasPanel extends javax.swing.JPanel {
      */
     
     private HospitalInterfaz mainFrame;
+    private JSpinner spinner = new JSpinner();
     
     public CitasPanel(HospitalInterfaz mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
+        initContent();
     }
 
     /**
@@ -32,12 +50,24 @@ public class CitasPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        addEditPanel = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        medCB = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        addConsul = new javax.swing.JTextField();
+        addNom = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        addEdad = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        addTel = new javax.swing.JTextField();
+        spinnerPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaExpedientes = new javax.swing.JTable();
+        tablaCitas = new javax.swing.JTable();
         buscador = new javax.swing.JTextField();
-        inspeccionarBtn = new javax.swing.JButton();
         Borrar = new javax.swing.JButton();
         Edit = new javax.swing.JButton();
         Anadir = new javax.swing.JButton();
@@ -45,6 +75,85 @@ public class CitasPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         tituloF = new javax.swing.JRadioButton();
         autorF = new javax.swing.JRadioButton();
+        reloadBtn = new javax.swing.JButton();
+
+        jLabel8.setText("Fecha:");
+
+        jLabel9.setText("Medico:");
+
+        jLabel10.setText("Consultorio:");
+
+        jLabel11.setText("Nombre:");
+
+        jLabel12.setText("Edad:");
+
+        jLabel13.setText("Telefono:");
+
+        spinnerPanel.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout addEditPanelLayout = new javax.swing.GroupLayout(addEditPanel);
+        addEditPanel.setLayout(addEditPanelLayout);
+        addEditPanelLayout.setHorizontalGroup(
+            addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addEditPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addEditPanelLayout.createSequentialGroup()
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(addTel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                            .addComponent(addNom, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(addEdad)
+                            .addComponent(spinnerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(addEditPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(medCB, 0, 269, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(addConsul, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        addEditPanelLayout.setVerticalGroup(
+            addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addEditPanelLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addEditPanelLayout.createSequentialGroup()
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(addNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(addTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(addEditPanelLayout.createSequentialGroup()
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(addEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8)
+                            .addComponent(spinnerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addGroup(addEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(medCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(addConsul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(605, 360));
@@ -57,7 +166,7 @@ public class CitasPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Citas");
 
-        tablaExpedientes.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -76,19 +185,12 @@ public class CitasPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        tablaExpedientes.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tablaExpedientes);
+        tablaCitas.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tablaCitas);
 
         buscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscadorActionPerformed(evt);
-            }
-        });
-
-        inspeccionarBtn.setText("Inspeccionar");
-        inspeccionarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inspeccionarBtnActionPerformed(evt);
             }
         });
 
@@ -126,7 +228,7 @@ public class CitasPanel extends javax.swing.JPanel {
         });
 
         tituloF.setSelected(true);
-        tituloF.setText("ID paciente");
+        tituloF.setText("ID");
         tituloF.setActionCommand("TITULO");
         tituloF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,29 +265,39 @@ public class CitasPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        reloadBtn.setText("Reiniciar");
+        reloadBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reloadBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(reloadBtn)
+                                .addGap(49, 49, 49)
+                                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 117, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(8, 8, 8)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(inspeccionarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGap(190, 190, 190)
+                            .addGap(298, 298, 298)
                             .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(18, 18, 18)
                             .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -204,7 +316,9 @@ public class CitasPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reloadBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                 .addGap(80, 80, 80))
@@ -218,8 +332,7 @@ public class CitasPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(Edit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                        .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                        .addComponent(inspeccionarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                     .addGap(20, 20, 20)))
         );
 
@@ -239,16 +352,63 @@ public class CitasPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buscadorActionPerformed
 
-    private void inspeccionarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inspeccionarBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inspeccionarBtnActionPerformed
-
     private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
-
+        try {
+            int row = tablaCitas.getSelectedRow();
+            Long id = (Long) tablaCitas.getValueAt(row, 0);
+            Cita cita = CitaControl.getCita(id);
+            int res = JOptionPane.showConfirmDialog(null, "Esta Acción eliminará la cita seleccionada, ¿Desea Continuar?",
+                    "Eliminar Cita", JOptionPane.OK_CANCEL_OPTION);
+            if(res == 0){
+                try {
+                    CitaControl.deleteCita(cita);
+                    initTable();
+                    JOptionPane.showMessageDialog(null, "¡Cita Eliminada Exitosamente!");
+                } catch(Exception e){
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_BorrarActionPerformed
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
-
+        try {
+            int row = tablaCitas.getSelectedRow();
+            Long id = (Long) tablaCitas.getValueAt(row, 0);
+            Cita cita = CitaControl.getCita(id);
+            addNom.setText(cita.getNombrePaciente());
+            addEdad.setText(String.valueOf(cita.getEdad()));
+            addTel.setText(cita.getTelefono());
+            addConsul.setText(cita.getConsultorio());
+            spinner.setValue(ltdToDate(cita.getFecha()));
+            medCB.setSelectedItem(cita.getNombreMedico());
+            int res = JOptionPane.showConfirmDialog(null, addEditPanel, "Actualizar Datos Cita", JOptionPane.OK_CANCEL_OPTION);
+            if(res == 0){
+                try {
+                    String nom = addNom.getText();
+                    int edad = Integer.parseInt(addEdad.getText());
+                    String tel = addTel.getText();
+                    String consul = addConsul.getText();
+                    String med = medCB.getSelectedItem().toString();
+                    LocalDateTime fecha = convertDate(spinner.getValue());
+                    cita.setConsultorio(consul);
+                    cita.setEdad(edad);
+                    cita.setFecha(fecha);
+                    cita.setNombreMedico(med);
+                    cita.setNombrePaciente(nom);
+                    cita.setTelefono(tel);
+                    CitaControl.updateCita(cita);
+                    initTable();
+                    JOptionPane.showMessageDialog(null, "¡Cita Actualizada Exitosamente!");
+                } catch(Exception e){
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_EditActionPerformed
 
     private void AnadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnadirMouseClicked
@@ -256,11 +416,36 @@ public class CitasPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_AnadirMouseClicked
 
     private void AnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirActionPerformed
-
+        int res = JOptionPane.showConfirmDialog(null, addEditPanel, "Agendar Cita", JOptionPane.OK_CANCEL_OPTION);
+        if(res == 0){
+            try {
+                String nom = addNom.getText();
+                int edad = Integer.parseInt(addEdad.getText());
+                String tel = addTel.getText();
+                LocalDateTime fecha = convertDate(spinner.getValue());
+                String med = medCB.getSelectedItem().toString();
+                String consultorio = addConsul.getText();
+                Cita cita = new Cita(edad, tel, fecha, consultorio, med, nom);
+                CitaControl.saveCita(cita);
+                initTable();
+                JOptionPane.showMessageDialog(null, "¡Cita Agendada Exitosamente!");
+            } catch(Exception e){
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        }
     }//GEN-LAST:event_AnadirActionPerformed
 
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
-
+        List<Cita> citas = new ArrayList();
+        if(tituloF.isSelected()){
+            Long id = Long.parseLong(buscador.getText());
+            Cita c = CitaControl.getCita(id);
+            citas.add(c);
+        } else{
+            String nom = buscador.getText().toUpperCase();
+            citas = CitaControl.getCitaPorPaciente(nom);
+        }
+        setTable(citas);
     }//GEN-LAST:event_buscarBtnActionPerformed
 
     private void tituloFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloFActionPerformed
@@ -270,24 +455,92 @@ public class CitasPanel extends javax.swing.JPanel {
     private void autorFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autorFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_autorFActionPerformed
+
+    private void reloadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadBtnActionPerformed
+        initTable();
+    }//GEN-LAST:event_reloadBtnActionPerformed
     
-    private void initContent(Usuario usuario){
-        
+    private void initContent(){
+        setupSpinner();
+        initMedCB();
+        initTable();
     }
+    
+    private void setupSpinner(){
+        SpinnerDateModel dateModel = new SpinnerDateModel(new Date(), null, null, java.util.Calendar.MINUTE);
+        
+        this.spinner = new JSpinner(dateModel);
+
+        JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "yyyy-MM-dd HH:mm:ss");
+        spinner.setEditor(editor);
+        spinnerPanel.add(spinner);
+    }
+    
+    private void initMedCB(){
+        List<Medico> meds = Auth.getMedicos();
+        for(Medico m: meds){
+            medCB.addItem(m.getNombre());
+        }
+    }
+    
+    private void initTable(){
+        List<Cita> citas = CitaControl.getCitas();
+        setTable(citas);
+    }
+    
+    private void setTable(List<Cita> citas){
+        String[] tblH = {"Id", "Paciente", "Edad", "Telefono", "Fecha", "Medico", "Consultorio"};
+        DefaultTableModel model = new DefaultTableModel(tblH, 0);
+        for(Cita c: citas){
+            Object[] row = {c.getId(), c.getNombrePaciente(), c.getEdad(), c.getTelefono(), 
+                c.getFecha().toString(), c.getNombreMedico(), c.getConsultorio()};
+            model.addRow(row);
+        }
+        tablaCitas.setModel(model);
+        tablaCitas.setDefaultEditor(Object.class, null);
+    }
+    
+    private LocalDateTime convertDate(Object date){
+        if(date instanceof Date){
+            return Instant.ofEpochMilli(((Date) date).getTime())
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime();
+        }
+        return null;
+    }
+    
+    private Date ltdToDate(LocalDateTime ltd){
+        return java.util.Date.from(ltd.atZone(ZoneId.systemDefault())
+            .toInstant());
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
     private javax.swing.JButton Edit;
+    private javax.swing.JTextField addConsul;
+    private javax.swing.JTextField addEdad;
+    private javax.swing.JPanel addEditPanel;
+    private javax.swing.JTextField addNom;
+    private javax.swing.JTextField addTel;
     private javax.swing.JRadioButton autorF;
     private javax.swing.JTextField buscador;
     private javax.swing.JButton buscarBtn;
-    private javax.swing.JButton inspeccionarBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaExpedientes;
+    private javax.swing.JComboBox<String> medCB;
+    private javax.swing.JButton reloadBtn;
+    private javax.swing.JPanel spinnerPanel;
+    private javax.swing.JTable tablaCitas;
     private javax.swing.JRadioButton tituloF;
     // End of variables declaration//GEN-END:variables
 }

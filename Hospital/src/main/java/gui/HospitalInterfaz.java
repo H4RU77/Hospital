@@ -5,20 +5,11 @@
 package gui;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.io.PrintWriter;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.temporal.ChronoUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import clases.*;
-import java.awt.Component;
 
 
 /**
@@ -32,6 +23,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private CitasPanel citasP;
     private ExpedientesPanel expedientesP;
     private EmergenciasPanel emergenciasP;
+    private PacientesPanel pacientesP;
 
     private Image principalImage = new ImageIcon("src/main/resources/principalImg.png").getImage();
     private Image prestamoImage = new ImageIcon("src/main/resources/prestamoImg.png").getImage();
@@ -65,6 +57,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         emergenciasBtn = new javax.swing.JButton();
         salirBtn = new javax.swing.JButton();
         principalBtn = new javax.swing.JButton();
+        pacientesBtn = new javax.swing.JButton();
         bg = new javax.swing.JPanel();
         menuPanel = new javax.swing.JPanel();
         menuOpciones = new javax.swing.JPanel();
@@ -140,6 +133,19 @@ public class HospitalInterfaz extends javax.swing.JFrame {
             }
         });
 
+        pacientesBtn.setBackground(new java.awt.Color(189, 238, 252));
+        pacientesBtn.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        pacientesBtn.setForeground(new java.awt.Color(88, 135, 237));
+        pacientesBtn.setText("Pacientes");
+        pacientesBtn.setMaximumSize(new java.awt.Dimension(300, 150));
+        pacientesBtn.setMinimumSize(new java.awt.Dimension(150, 75));
+        pacientesBtn.setPreferredSize(new java.awt.Dimension(185, 75));
+        pacientesBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pacientesBtnMouseClicked(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
 
@@ -210,8 +216,8 @@ public class HospitalInterfaz extends javax.swing.JFrame {
         barraPLayout.setHorizontalGroup(
             barraPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraPLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(textoL1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(textoL1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
         );
         barraPLayout.setVerticalGroup(
@@ -295,6 +301,10 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private void salirBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBtnMouseClicked
         System.exit(0);
     }//GEN-LAST:event_salirBtnMouseClicked
+
+    private void pacientesBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pacientesBtnMouseClicked
+        ContentChange.changePanel(contentP, pacientesP);
+    }//GEN-LAST:event_pacientesBtnMouseClicked
    
 
     private ImageIcon resizeImage(Image image, JLabel label){
@@ -309,22 +319,26 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     
     public void initContent(){
         this.principalP = new Principal(currUser.getRol());
-        this.citasP = new CitasPanel(this);
-        this.emergenciasP = new EmergenciasPanel();
-        this.expedientesP = new ExpedientesPanel(this);
         ContentChange.changePanel(contentP, principalP);
         contenedorOpt.add(principalBtn);
         switch(currUser.getRol()){
             case "MEDICO":
+                this.expedientesP = new ExpedientesPanel(this);
                 contenedorOpt.add(expedientesBtn);
                 break;
             case "RECEPCIONISTA":
+                this.citasP = new CitasPanel(this);
+                this.emergenciasP = new EmergenciasPanel();
                 contenedorOpt.add(citasBtn);
                 contenedorOpt.add(emergenciasBtn);
                 break;
             case "RECEPCIONISTA PERSONAL":
+                this.citasP = new CitasPanel(this);
+                this.emergenciasP = new EmergenciasPanel();
+                this.pacientesP = new PacientesPanel(this);
                 contenedorOpt.add(citasBtn);
                 contenedorOpt.add(emergenciasBtn);
+                contenedorOpt.add(pacientesBtn);
                 break;
             default:
                 break;
@@ -388,6 +402,7 @@ public class HospitalInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel menuOpciones;
     private javax.swing.JPanel menuPanel;
+    private javax.swing.JButton pacientesBtn;
     private javax.swing.JButton principalBtn;
     private javax.swing.JButton salirBtn;
     private javax.swing.JLabel textoL;
