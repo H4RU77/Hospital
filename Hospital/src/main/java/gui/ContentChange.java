@@ -52,4 +52,24 @@ public class ContentChange {
             e.printStackTrace();
         }
     }
+    
+    public static void generarReceta(String nomMed, String nomPac, String edad, String fecha, String diagnostico, String desc){
+        try {
+            InputStream reportPath = new FileInputStream("src/main/resources/receta.jasper");
+
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("nombreMed", nomMed);
+            parameters.put("nombrePac", nomPac);
+            parameters.put("edadPac", edad);
+            parameters.put("fecha", fecha);
+            parameters.put("diagnostico", diagnostico);
+            parameters.put("descripcion", desc);
+
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, parameters, new JREmptyDataSource());
+
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

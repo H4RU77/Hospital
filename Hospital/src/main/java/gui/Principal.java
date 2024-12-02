@@ -121,17 +121,17 @@ public class Principal extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(recetaBtn)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(recetaBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(recetaBtn)
+                .addContainerGap())
         );
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
@@ -142,21 +142,20 @@ public class Principal extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(250, 250, 250))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(245, 245, 245)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addComponent(jLabel9)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout medicoPLayout = new javax.swing.GroupLayout(medicoP);
@@ -679,10 +678,7 @@ public class Principal extends javax.swing.JPanel {
     diagPaciente != null && !diagPaciente.isEmpty() && 
     descripcion != null && !descripcion.isEmpty()){
               
-               confirmLabel.setText("Receta creada con éxito");
-                confirmPanel.add(confirmLabel);
-              JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
+               ContentChange.generarReceta("Receta Medica", nombrePaciente, edadPaciente, fechaPaciente, diagPaciente, descripcion);
           }else{
                confirmLabel.setText("Error al crear receta");
                confirmPanel.add(confirmLabel);
@@ -693,315 +689,23 @@ public class Principal extends javax.swing.JPanel {
     }//GEN-LAST:event_recetaBtnMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        JTextField t1 = new JTextField(10);
-      JTextField t2 = new JTextField(10);
-      JTextField t3 = new JTextField(10);
-   
-      
-      JPanel myPanel = new JPanel();
-      myPanel.setSize(200, 500);
-      // Configuración del panel y los componentes con alineación a la izquierda
-       myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
-
-        // Crear y añadir el label y text field para "Nombre del paciente"
-        JLabel label1 = new JLabel("Nombre del paciente:");
-        label1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciador
-        myPanel.add(label1);
-
-        t1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t1);
-
-        // Crear y añadir el label y text field para "Edad"
-        JLabel label2 = new JLabel("Edad:");
-        label2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label2);
-
-        t2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t2);
-
-        // Crear y añadir el label y text field para "Fecha"
-        JLabel label3 = new JLabel("Razón de ingreso:");
-        label3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label3);
-
-        t3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t3);
-
-
-      int result = JOptionPane.showConfirmDialog(null, myPanel, 
-               "Ingrese los datos del registro por emergencia: ", JOptionPane.OK_CANCEL_OPTION);
-      if (result == JOptionPane.OK_OPTION) {
-          String nombrePaciente = t1.getText();
-          String edadPaciente = t2.getText();
-          String fechaPaciente = t3.getText();
-         
-           JPanel confirmPanel = new JPanel();
-            JLabel confirmLabel = new JLabel();
-                myPanel.setSize(200, 500);
-          //Si se han ingresado correctamente todos los datos
-          if(nombrePaciente != null && !nombrePaciente.isEmpty() && 
-    edadPaciente != null && !edadPaciente.isEmpty() && 
-    fechaPaciente != null && !fechaPaciente.isEmpty()){
-              
-               confirmLabel.setText("Registro creado con éxito");
-                confirmPanel.add(confirmLabel);
-              JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }else{
-               confirmLabel.setText("Error al crear registro");
-               confirmPanel.add(confirmLabel);
-               JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }
-      }
+        //CONECTAR CON METODO DE INTERFAZ
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-          JTextField t1 = new JTextField(10);
-      JTextField t2 = new JTextField(10);
-      JTextField t3 = new JTextField(10);
-   
-      
-      JPanel myPanel = new JPanel();
-      myPanel.setSize(200, 500);
-      // Configuración del panel y los componentes con alineación a la izquierda
-       myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
-
-        // Crear y añadir el label y text field para "Nombre del paciente"
-        JLabel label1 = new JLabel("Nombre del paciente:");
-        label1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciador
-        myPanel.add(label1);
-
-        t1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t1);
-
-        // Crear y añadir el label y text field para "Edad"
-        JLabel label2 = new JLabel("ID del paciente:");
-        label2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label2);
-
-        t2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t2);
-
-        // Crear y añadir el label y text field para "Fecha"
-        JLabel label3 = new JLabel("Fecha:");
-        label3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label3);
-
-        t3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t3);
-
-
-      int result = JOptionPane.showConfirmDialog(null, myPanel, 
-               "Ingrese los datos de la cita: ", JOptionPane.OK_CANCEL_OPTION);
-      if (result == JOptionPane.OK_OPTION) {
-          String nombrePaciente = t1.getText();
-          String edadPaciente = t2.getText();
-          String fechaPaciente = t3.getText();
-         
-           JPanel confirmPanel = new JPanel();
-            JLabel confirmLabel = new JLabel();
-                myPanel.setSize(200, 500);
-          //Si se han ingresado correctamente todos los datos
-          if(nombrePaciente != null && !nombrePaciente.isEmpty() && 
-    edadPaciente != null && !edadPaciente.isEmpty() && 
-    fechaPaciente != null && !fechaPaciente.isEmpty()){
-              
-               confirmLabel.setText("Cita agendada con éxito");
-                confirmPanel.add(confirmLabel);
-              JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }else{
-               confirmLabel.setText("Error al agendar cita");
-               confirmPanel.add(confirmLabel);
-               JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }
-      }
+        //CONECTAR CON METODO DE INTERFAZ
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-          JTextField t1 = new JTextField(10);
-      JTextField t2 = new JTextField(10);
-      JTextField t3 = new JTextField(10);
-      JTextField t4 = new JTextField(10);
-   
-      
-      JPanel myPanel = new JPanel();
-      myPanel.setSize(200, 500);
-      // Configuración del panel y los componentes con alineación a la izquierda
-       myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
-
-        // Crear y añadir el label y text field para "Nombre del paciente"
-        JLabel label1 = new JLabel("Nombre del paciente:");
-        label1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciador
-        myPanel.add(label1);
-
-        t1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t1);
-
-        // Crear y añadir el label y text field para "Edad"
-        JLabel label2 = new JLabel("Edad:");
-        label2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label2);
-
-        t2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t2);
-        
-        // Estado crítico
-        JLabel label4 = new JLabel("¿Estado crítico?(S/N):");
-        label4.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label4);
-
-        t3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t4);
-        
-        // Crear y añadir el label y text field para "Fecha"
-        JLabel label3 = new JLabel("Razón de ingreso:");
-        label3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label3);
-
-        t3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t3);
-
-
-      int result = JOptionPane.showConfirmDialog(null, myPanel, 
-               "Ingrese los datos del registro por emergencia: ", JOptionPane.OK_CANCEL_OPTION);
-      if (result == JOptionPane.OK_OPTION) {
-          String nombrePaciente = t1.getText();
-          String edadPaciente = t2.getText();
-          
-          
-          
-          Paciente paciente = new Paciente();
-          paciente.setNombre(t1.getText()) ;
-          paciente.setEdad(Integer.parseInt(t2.getText()) );
-          String razonIngreso = t3.getText();
-          String estadoPaciente = t4.getText();
-         
-           JPanel confirmPanel = new JPanel();
-            JLabel confirmLabel = new JLabel();
-                myPanel.setSize(200, 500);
-          //Si se han ingresado correctamente todos los datos
-          if(estadoPaciente != null && !estadoPaciente.isEmpty() && nombrePaciente != null && !nombrePaciente.isEmpty() && 
-    edadPaciente != null && !edadPaciente.isEmpty() && 
-    razonIngreso!= null && !razonIngreso.isEmpty()){
-              
-               confirmLabel.setText("Registro creado con éxito");
-                confirmPanel.add(confirmLabel);
-              JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }else{
-               confirmLabel.setText("Error al crear registro");
-               confirmPanel.add(confirmLabel);
-               JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }
-      }
+        //CONECTAR CON METODO DE INTERFAZ
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-               JTextField t1 = new JTextField(10);
-      JTextField t2 = new JTextField(10);
-      JTextField t3 = new JTextField(10);
-   
-      
-      JPanel myPanel = new JPanel();
-      myPanel.setSize(200, 500);
-      // Configuración del panel y los componentes con alineación a la izquierda
-       myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
-
-        // Crear y añadir el label y text field para "Nombre del paciente"
-        JLabel label1 = new JLabel("Nombre del paciente:");
-        label1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createRigidArea(new Dimension(0, 10))); // Espaciador
-        myPanel.add(label1);
-
-        t1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t1);
-
-        // Crear y añadir el label y text field para "Edad"
-        JLabel label2 = new JLabel("ID del paciente:");
-        label2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label2);
-
-        t2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t2);
-
-        // Crear y añadir el label y text field para "Fecha"
-        JLabel label3 = new JLabel("Fecha:");
-        label3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(Box.createVerticalStrut(15)); // Espaciador
-        myPanel.add(label3);
-
-        t3.setAlignmentX(Component.LEFT_ALIGNMENT);
-        myPanel.add(t3);
-
-
-      int result = JOptionPane.showConfirmDialog(null, myPanel, 
-               "Ingrese los datos de la cita: ", JOptionPane.OK_CANCEL_OPTION);
-      if (result == JOptionPane.OK_OPTION) {
-          String nombrePaciente = t1.getText();
-          String edadPaciente = t2.getText();
-          String fechaPaciente = t3.getText();
-         
-           JPanel confirmPanel = new JPanel();
-            JLabel confirmLabel = new JLabel();
-                myPanel.setSize(200, 500);
-          //Si se han ingresado correctamente todos los datos
-          if(nombrePaciente != null && !nombrePaciente.isEmpty() && 
-    edadPaciente != null && !edadPaciente.isEmpty() && 
-    fechaPaciente != null && !fechaPaciente.isEmpty()){
-              
-               confirmLabel.setText("Cita agendada con éxito");
-                confirmPanel.add(confirmLabel);
-              JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }else{
-               confirmLabel.setText("Error al agendar cita");
-               confirmPanel.add(confirmLabel);
-               JOptionPane.showMessageDialog(null, confirmPanel, 
-               "Confirmación ", JOptionPane.OK_CANCEL_OPTION);
-          }
-      }
+        //CONECTAR CON METODO DE INTERFAZ
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    String[] columnNames = {"ID", "Nombre"};
-        Object[][] data = {
-            {1, "Juan Pérez"},
-            {2, "María López"},
-            {3, "Carlos García"}
-        };
-
-        // Crear la tabla con los datos
-        JTable table = new JTable(new DefaultTableModel(data, columnNames));
-        JScrollPane scrollPane = new JScrollPane(table); // Agregar la tabla a un scroll
-        table.setFillsViewportHeight(true);
-
-        // Configuración del panel con la tabla
-        JPanel myPanel = new JPanel();
-        myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
-        myPanel.add(new JLabel("Listado de pacientes:"));
-        myPanel.add(scrollPane);
-
-        // Mostrar el JOptionPane con la tabla
-        int result = JOptionPane.showConfirmDialog(null, myPanel, 
-                "Listado de pacientes", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-
-      
-   
+        //CONECTAR CON METODO DE INTERFAZ
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
